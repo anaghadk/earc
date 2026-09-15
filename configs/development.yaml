@@ -1,0 +1,10 @@
+data:
+  n_examples_per_dataset: 100
+
+hardware:
+  device: cpu
+  fp16: false
+
+evaluation:
+  bootstrap_resamples: 500
+  significance_resamples: 1000

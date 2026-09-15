@@ -1,0 +1,4 @@
+compression:
+  token_budget: 420
+  alpha: 0.7
+  beta: 0.3

@@ -1,0 +1,236 @@
+Evidence-Aware Retrieval-Guided Prompt Compression for Token-Efficient Retrieval-Augmented Generation
+
+Abstract—Retrieval-Augmented Generation (RAG) improves the factual grounding of large language models by pulling in supporting evidence from external sources rather than relying solely on what the model memorized during training. In practice, though, most RAG pipelines simply concatenate every retrieved passage into the prompt with little regard for whether it actually helps, so prompts routinely run into the thousands of tokens, driving up latency and compute cost and sometimes overflowing the model’s context window altogether. Standard fixes—generic summarization or similarity-based filtering—tend to strip out exactly the sentences that carry the facts needed to answer the question, since a sentence can be low in surface-level similarity to the query yet still be evidentially important. We present an evidence-aware, retrieval-guided prompt compression framework that scores each candidate sentence on three signals: semantic relevance to the query, evidential weight (named entities, numeric content, keyword overlap), and redundancy with respect to sentences already selected, then greedily fills a fixed token budget with the highest-scoring, non-redundant sentences. The whole pipeline runs on a single 4 GB consumer GPU (an RTX 3050 laptop chip), using all-MiniLM-L6-v2 for embeddings and Flan-T5-base for generation. Across HotpotQA (multi-hop) and TriviaQA (single-hop), the method cuts prompt length by 85–98% relative to standard RAG, and outperforms LLMLingua-2—a strong learned compressor—on both benchmarks (paired bootstrap, p < 0.01) with fewer tokens and a fraction of the latency. It also clearly beats uncompressed RAG, which suffers from truncation past the 512-token limit, and abstractive summarization. Against a strong top-k passage baseline the picture is more nuanced: on TriviaQA the method matches top-k accuracy using under half the tokens (the gap is not statistically significant), while on HotpotQA it only catches up once given a comparable token budget. Rather than a universal accuracy win, then, the contribution here is a tunable compression-accuracy trade-off and a compression layer light enough to run on commodity hardware.
+Keywords—Retrieval-Augmented Generation, Prompt Compression, Evidence Selection, Large Language Models, Token Efficiency, Open-Domain Question Answering.
+
+INTRODUCTION
+
+Large language models have reshaped how question-answering systems are built, but their knowledge is frozen at whatever was in the training data. Ask about anything that happened afterward, or anything obscure enough not to have been well represented during training,
+and the model is essentially guessing. Retrieval-Augmented Generation (RAG) sidesteps this by looking things up instead of expecting the model to remember everything: for each query, it pulls relevant documents from an external source and feeds them to the model alongside the question, grounding the answer in retrieved evidence rather than parametric memory alone.
+
+RAG isn’t free of problems, though. The main one is what happens to all that retrieved text once it lands in the prompt: most implementations simply append every retrieved passage without checking whether it actually helps answer the question. The more documents retrieved, the longer and noisier the prompt gets — repeated details, tangential information, sentences that add nothing to the final answer. Counterintuitively, this can hurt more than it helps, since burying the useful facts in irrelevant text makes them harder for the model to find, and it eats into the context window, which is a hard limit for most current LLMs.
+
+Shrinking that context isn’t as simple as making the text shorter. Most compression methods are optimized for brevity rather than for keeping the sentences that actually answer the question, and similarity-based filtering in particular can be misleading — a sentence can look unrelated to the query on the surface while still holding the one fact the answer depends on. Getting the trade-off right between prompt length and evidence coverage is the real challenge.
+
+This paper introduces an Evidence-Aware Retrieval-Guided Prompt Compression framework that treats sentences unequally on purpose. Each candidate is scored on how semantically close it is to the query and on whether it carries markers of factual importance — named entities, numbers, keyword overlap with the question. Sentences that just repeat what has already been selected are dropped, and what survives is packed greedily into a fixed token budget, so the final prompt stays compact without losing the evidence that matters.
+
+The contributions of this work are as follows.
+
+C1 — Evidence-Aware Prompt Compression Framework. A sentence-level compression framework that scores candidates on two axes — query relevance and evidential weight — so facts needed for the answer aren’t accidentally discarded by a filter that only looks at surface similarity.
+C2 — Hybrid Relevance-Evidence Scoring. A scoring function that blends two signals: semantic similarity between the query and a sentence, and an evidence score built from entity counts, numeric content, and keyword overlap. The two are combined through a weighted sum.
+
+C3 — Cross-Document Redundancy Filtering. An embedding-based filter that catches near-duplicate sentences across documents — even when they come from entirely different sources — and keeps only the higher-ranked copy.
+
+C4 — Token-Efficient Prompt Construction. A greedy sentence-packing strategy under an explicit token budget, with the entire pipeline running end-to-end on a 4 GB consumer GPU.
+
+C5 — Significance-Tested Multi-Benchmark Evaluation. An evaluation across HotpotQA and TriviaQA against four baselines — standard RAG, top-k passages, abstractive summarization, and the learned compressor LLMLingua-2
+— with 95% bootstrap confidence intervals and paired-bootstrap significance tests.
+
+LITERATURE SURVEY
+Retrieval-Augmented Generation. Lewis et al. [1] introduced RAG by combining a dense retriever with a sequence-to-sequence generator. Guu et al. [2] proposed REALM, which integrates a latent retrieval step into language-model pre-training. Izacard and Grave [3] presented Fusion-in-Decoder, which encodes multiple retrieved passages independently and fuses them in the decoder, thereby improving open-domain QA at substantial input-token cost.
+Dense and Sparse Retrieval. The classical BM25 ranking function [4] remains a strong baseline. Karpukhin et al. [5] introduced Dense Passage Retrieval (DPR), and Johnson et al. [6] contributed FAISS for efficient similarity search over dense vectors. Our framework is retriever-agnostic and is evaluated with both BM25 and dense retrieval parameters.
+Sentence Embeddings. Reimers and Gurevych [7] proposed Sentence-BERT; the compact all-MiniLM-L6-v2 model derived from MiniLM distillation [8] offers a strong speed/quality trade-off suitable for resource-constrained GPUs.
+Prompt and Context Compression. Li et al. [9] proposed Selective Context; Jiang et al. [10], [11] introduced LLMLingua and LongLLMLingua for budget-controlled prompt compression; Xu et al. [12] proposed RECOMP for RAG-tailored compression; and Chevalier et al. [13] introduced AutoCompressors. Our approach differs by being explicitly evidence-aware — rewarding sentences that carry factual markers and pairing this with cross-document redundancy removal under a hard token budget. We benchmark directly against LLMLingua-2 [20], the token-classification successor in this line of work, as our learned-compression baseline.
+Instruction-Tuned Generators. Our generator is the instruction-tuned Flan-T5 family [14]. Its encoder-decoder design suits grounded extractive QA, and the base variant fits comfortably within 4 GB of VRAM — unlike 7–8B decoder-only models such as LLaMA-3 [15] and Mistral [16], which exceed a consumer laptop GPU’s memory budget even under 4-bit quantization.
+
+METHODOLOGY
+Problem Formulation. Given a query Q, a retriever returns documents D = {d₁, …, d◻}. Let S = {s₁, …, s◻} be the sentences obtained by segmenting D. The goal is to construct a compressed context C, a subset of S whose total token count does not exceed a budget T, that maximizes the probability the LLM generates the correct answer A given Q and C.
+Stage 1 — Retrieval. The query is issued to a BM25 or dense retriever (all-MiniLM-L6-v2 embeddings, optionally indexed with FAISS). The top-k documents (default k = 5) are passed forward.
+Stage 2 — Sentence Segmentation. Retrieved documents are split into sentences using spaCy, with a regex fallback; exact duplicates are removed.
+Stage 3 — Semantic Relevance Scoring. The query and each candidate sentence are embedded; relevance simᵢ is the cosine similarity between the normalized query and sentence embeddings, in [0, 1].
+Stage 4 — Evidence Scoring. Each sentence receives evidenceᵢ = entities(sᵢ) + numbers(sᵢ) + keyword_hits(sᵢ, Q), then min-max normalized to [0, 1] so it is commensurate with cosine relevance.
+Stage 5 — Hybrid Ranking. The final score is scoreᵢ = α·simᵢ + β·evidenceᵢ (defaults α = 0.7, β = 0.3); sentences are sorted by descending score.
+Stage 6 — Redundancy Filtering. Iterating from the top, a candidate is discarded if its embedding cosine similarity to any already-kept sentence exceeds τ (default 0.85).
+Stage 7 — Token-Budget Selection and Prompt Construction. Surviving sentences are greedily added in rank order until the token budget T (measured with the generator's tokenizer) is reached; the selected sentences form the context block of a fixed instruction template submitted to Flan-T5.
+Implementation and Hardware. The framework is implemented in Python with PyTorch (CUDA 12.1), sentence-transformers, and Hugging Face transformers. All neural computation executes on a single NVIDIA GeForce RTX 3050 Laptop GPU (4 GB VRAM). The embedding model (~0.1 GB) and the generator (~1 GB at FP16) both reside on the GPU; FP16 precision and small embedding batches keep peak memory within the 4 GB envelope.
+System Architecture
+
+Fig. 1. End-to-end architecture of the evidence-aware retrieval-guided prompt compression framework. The embedding model and the generator both execute on a single 4 GB GPU.
+Algorithm
+Input: Query Q, Retrieved documents D, Token budget T, weights α/β, redundancy threshold τ.
+D ← Retriever(Q)
+S ← Segment(D)
+e_Q ← Embed(Q)
+for each sᵢ in S: eᵢ ← Embed(sᵢ); simᵢ ← cosine(e_Q, eᵢ); evidᵢ
+← entities(sᵢ)+numbers(sᵢ)+keywords(sᵢ,Q)
+normalize evid over S
+scoreᵢ ← α·simᵢ + β·evidᵢ; rank S by scoreᵢ (desc)
+C ← []
+for each sᵢ in ranked S: if max cosine(eᵢ, e_j in C) > τ: skip; if tok(C)+tok(sᵢ) > T: skip; else C ← C + [sᵢ]
+return Construct_Prompt(C)
+DATASET DESCRIPTION
+We evaluate on two complementary open-domain QA benchmarks. HotpotQA is a multi-hop benchmark in its distractor setting (ten paragraphs per question: two gold supporting paragraphs and eight lexically similar distractors), demanding because the distractors are topically close to the gold evidence and the answer requires combining facts from different documents. TriviaQA (rc.wikipedia) is a single-hop factoid benchmark whose questions are answered from long Wikipedia evidence pages with multiple answer aliases, testing span localization from lengthy, noisy context. We report results over fixed samples of each validation split (300 questions per dataset) with a fixed seed. Natural Questions in its open-domain form requires a full-Wikipedia index that does not fit the 4 GB memory budget and is left for future work.
+TABLE I. DATASETS USED FOR EVALUATION
+
+Dataset
+Type
+Characteristics / Role
+HotpotQA (distractor) [18]
+Multi-hop QA
+10 paragraphs/question (2 gold + 8 distractors); primary multi-hop benchmark.
+TriviaQA (rc.wikipedia) [19]
+Single-hop factoid QA
+Long Wikipedia evidence pages; multiple answer aliases; span localization.
+Natural Questions (NQ) [17]
+Single-hop QA
+Not evaluated; needs full-Wikipedia dense index
+infeasible on 4 GB (future work).
+EXPERIMENTAL RESULTS
+We run experiments on HotpotQA (multi-hop) and TriviaQA (single-hop factoid), 300 questions per dataset, using Flan-T5-base for generation and all-MiniLM-L6-v2 for relevance and redundancy scoring — all on the same 4 GB RTX 3050 GPU. For each method we track average compressed prompt length, answer quality (Exact Match and token-level F1), and average end-to-end response time, with 95% bootstrap confidence intervals for F1 (2000 resamples) and two-sided paired bootstrap tests (5000 resamples) for significance. The baselines are Standard RAG, Top-k passages, Summarization, and LLMLingua-2 at a matched token budget; the proposed method is evaluated in an aggressive regime (T ≈ 200 tokens), with a token-matched regime (T ≈ 420) also reported for HotpotQA. It is worth noting that Flan-T5-base truncates anything past 512 input tokens — exactly the failure mode this compression scheme is meant to head off.
+Main Results (Aggressive Regime)
+Tables II and III show the main comparison. Standard RAG produces by far the longest prompts — 1,318 tokens on HotpotQA and 12,250 on TriviaQA — which blow past the 512-token encoder limit and, unsurprisingly, give the worst accuracy of any method tested. The proposed method sits at the other extreme, at 196–198 tokens (an 85–98% reduction), and still comes out ahead of LLMLingua-2 on both datasets (+9.3 F1 on HotpotQA, +33.9 F1 on TriviaQA, both p < 0.01), using fewer tokens and taking a
+fraction of the time. The comparison against top-k passages is less clean-cut, and depends heavily on the dataset. HotpotQA demands multi-hop reasoning across documents, and there top-k keeps a significant edge — this method is genuinely trading some accuracy for compression. TriviaQA tells a different story: on this single-hop benchmark the proposed method statistically matches top-k (p = 0.31), while using under half the token budget to get there.
+TABLE II. MAIN RESULTS ON HOTPOTQA DATASET (n = 300, AGGRESSIVE REGIME)
+
+Method
+Avg. Tokens
+EM
+F1
+Time (s)
+Standard RAG
+1318
+9.3
+13.2
+0.28
+Top-k passages
+429
+36.0
+46.4
+0.19
+Summarization
+94
+27.0
+34.6
+2.96
+LLMLingua-2
+250
+20.7
+29.7
+0.55
+Proposed method
+196
+30.3
+39.0
+0.26
+TABLE III. MAIN RESULTS ON TRIVIAQA (n = 300, AGGRESSIVE REGIME)
+
+Method
+Avg. Tokens
+EM
+F1
+Time (s)
+Standard RAG
+12250
+9.3
+13.6
+0.43
+Top-k passages
+416
+43.7
+52.1
+0.19
+Summarization
+91
+30.0
+36.4
+3.23
+LLMLingua-2
+729
+11.3
+15.3
+19.49
+Proposed method
+198
+42.3
+49.2
+1.03
+Statistical Significance
+Table IV breaks down the F1 differences and paired-bootstrap p-values for every comparison. The proposed method beats Standard RAG and LLMLingua-2 significantly on both datasets, and beats Summarization significantly on TriviaQA (though not on HotpotQA). It is statistically indistinguishable from top-k on TriviaQA; the one baseline that pulls ahead significantly anywhere is top-k on HotpotQA.
+TABLE IV. PAIRED-BOOTSTRAP SIGNIFICANCE OF F1 (PROPOSED MINUS BASELINE)
+
+Comparison
+HotpotQA ΔF1 (p)
+TriviaQA ΔF1 (p)
+vs. Standard RAG
++25.7 (p<0.001)
++35.6 (p<0.001)
+vs. Top-k passages
+-7.4 (p=0.008)
+-2.9 (p=0.31, n.s.)
+vs. Summarization
++4.4 (p=0.14, n.s.)
++12.9 (p<0.001)
+vs. LLMLingua-2
++9.3 (p=0.002)
++33.9 (p<0.001)
+Token-Matched Comparison
+To separate selection quality from sheer prompt length, we raised the token budget on HotpotQA until it roughly matched top-k’s, then re-ran the comparison. Given the same budget, the proposed method is essentially on par with
+— and marginally ahead of — top-k (46.0 F1 / 36.0 EM vs. 45.8 F1 / 35.3 EM). Taken together with the TriviaQA result
+above, this points to a tunable operating curve rather than a single fixed accuracy number.
+TABLE V. TOKEN-MATCHED RESULTS ON HOTPOTQA (n = 300)
+
+Method
+Avg. Tokens
+EM
+F1
+Standard RAG
+1318
+9.3
+13.2
+Top-k passages
+343
+35.3
+45.8
+Proposed method
+415
+36.0
+46.0
+Latency
+All three extractive methods — standard RAG, top-k, and the proposed method — finish in about a second or less. On long inputs, the proposed method is roughly on par with top-k and far faster than summarization or LLMLingua-2 (0.26 s vs. 19.5 s on TriviaQA), simply because LLMLingua-2 has to run token classification over the whole uncompressed context, while this method only needs sentence embeddings.
+Ablation Study
+We isolated each scoring component at a fixed, aggressive budget (T ≈ 200) on the 300 HotpotQA questions. Semantic similarity turns out to carry most of the weight — ranking by relevance alone gets the highest F1 (39.9) of any configuration tested. The evidence signal is much weaker in isolation (33.2), and under this tight a budget, adding it to similarity actually drags F1 down slightly (38.7); redundancy removal claws back part of that loss (39.0). In other words, the evidence and redundancy terms are not universally helpful — they are budget-dependent, and need tuning to whatever operating point is actually being targeted.
+TABLE VI. ABLATION STUDY ON HOTPOTQA (n = 300, T ≈ 200)
+
+Configuration
+Tokens
+F1
+Similarity only
+197
+39.9
+Evidence only
+197
+33.2
+Similarity + Evidence
+197
+38.7
+Full method (with redundancy removal)
+196
+39.0
+Live GPU Verification
+We also ran the full pipeline live on the target 4 GB RTX 3050 GPU. On two illustrative open-domain queries, it compressed the retrieved context from 324 and 212 tokens down to 60 and 51 (81.5% and 75.9% reduction), and Flan-T5 still produced correct, grounded answers — correctly attributing general relativity to Albert Einstein, for instance. Both this pipeline and the LLMLingua-2 baseline ran on the same 4 GB card, confirming the whole evaluation stays within budget.
+CONCLUSION AND FUTURE WORK
+This paper set out an evidence-aware, retrieval-guided prompt compression framework for token-efficient RAG. By scoring sentences on a hybrid of semantic relevance and evidential importance, filtering out cross-document redundancy, and packing the result into an explicit token budget, the framework cuts prompt length by 85–98% relative to standard RAG on both benchmarks tested. The clearest result is that it beats LLMLingua-2 — a strong learned compressor — on both HotpotQA and TriviaQA (p
+< 0.01), with fewer tokens and far less latency, and it comfortably outperforms both uncompressed RAG (which suffers from context-window truncation) and abstractive summarization. Against top-k passages, the picture is a genuine trade-off rather than a clean win: on single-hop TriviaQA the method matches top-k accuracy at under half the token budget (not a significant difference), while on multi-hop HotpotQA it only catches up once given a comparable budget. That the whole pipeline runs end-to-end on a single 4 GB consumer GPU suggests meaningful context compression does not require expensive hardware.
+The ablation study confirms that semantic relevance does most of the work, and that the heuristic evidence and redundancy terms help or hurt depending on the budget. Natural directions for future work include learning the relevance-evidence weights and redundancy threshold directly from QA supervision rather than fixing them by hand, swapping the heuristic evidence signal for a lightweight learned classifier, extending evaluation to Natural Questions and other corpora on higher-memory hardware, adapting the framework to multi-turn conversational RAG, and testing quantized larger generators to see where the quality ceiling actually sits under tight memory budgets.
+
+REFERENCES
+P. Lewis, E. Perez, A. Piktus, et al., “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,” NeurIPS, 2020.
+K. Guu, K. Lee, Z. Tung, P. Pasupat, and M.-W. Chang, “REALM:  Retrieval-Augmented  Language  Model Pre-Training,” ICML, 2020.
+G. Izacard and E. Grave, “Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering,” EACL, 2021.
+S. Robertson and H. Zaragoza, “The Probabilistic Relevance Framework: BM25 and Beyond,” Foundations and Trends in Information Retrieval, vol. 3, no. 4, pp. 333–389, 2009.
+V. Karpukhin, B. Oguz, S. Min, et al., “Dense Passage Retrieval for Open-Domain Question Answering,” EMNLP, 2020.
+J. Johnson, M. Douze, and H. Jegou, “Billion-Scale Similarity Search with GPUs,” IEEE Transactions on Big Data, vol. 7, no. 3, pp. 535–547, 2021.
+N. Reimers and I. Gurevych, “Sentence-BERT: Sentence EmbeddingsUsingSiameseBERT-Networks,” EMNLP-IJCNLP, 2019.
+W. Wang, F. Wei, L. Dong, H. Bao, N. Yang, and M. Zhou, “MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers,” NeurIPS, 2020.
+Y. Li, B. Dong, F. Guerin, and C. Lin, “Compressing Context to Enhance Inference Efficiency of Large Language Models,” EMNLP, 2023.
+H. Jiang, Q. Wu, C.-Y. Lin, Y. Yang, and L. Qiu, “LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models,” EMNLP, 2023.
+H. Jiang, Q. Wu, X. Luo, et al., “LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression,” ACL, 2024.
+F. Xu, W. Shi, and E. Choi, “RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation,” ICLR, 2024.
+A. Chevalier, A. Wettig, A. Ajith, and D. Chen, “Adapting Language Models to Compress Contexts,” EMNLP, 2023.
+H. W. Chung, L. Hou, S. Longpre, et al., “Scaling Instruction-Finetuned Language Models,” JMLR, 2024.
+A. Grattafiori, A. Dubey, A. Jauhri, et al., “The Llama 3 Herd of Models,” arXiv:2407.21783, 2024.
+A. Q. Jiang, A. Sablayrolles, A. Mensch, et al., “Mistral 7B,” arXiv:2310.06825, 2023.
+T. Kwiatkowski, J. Palomaki, O. Redfield, et al., “Natural Questions: A Benchmark for Question Answering Research,” TACL, vol. 7, pp. 453–466, 2019.
+Z. Yang, P. Qi, S. Zhang, et al., “HotpotQA: A Dataset for Diverse, Explainable Multi-Hop Question Answering,” EMNLP, 2018.
+M. Joshi, E. Choi, D. Weld, and L. Zettlemoyer, “TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension,” ACL, 2017.
+Z. Pan, Q. Wu, H. Jiang, et al., “LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression,” Findings of the ACL, 2024.
