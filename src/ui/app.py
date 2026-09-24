@@ -21,6 +21,7 @@ import streamlit as st
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
+os.chdir(_PROJECT_ROOT)
 
 # Ensure Mistral API key is available from environment or fallback
 if not os.environ.get("MISTRAL_API_KEY"):

@@ -5,7 +5,7 @@ from src.data.schemas import CandidateSentence
 logger = logging.getLogger(__name__)
 
 class HybridRanker:
-    def rank(self, candidates: List[CandidateSentence], alpha: float = 0.7, beta: float = 0.3) -> List[CandidateSentence]:
+    def rank(self, candidates: List[CandidateSentence], alpha: float = 0.3, beta: float = 0.7) -> List[CandidateSentence]:
         if alpha < 0 or beta < 0:
             raise ValueError("alpha and beta must be >= 0")
             

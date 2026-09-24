@@ -15,10 +15,11 @@ retrieval:
   retrieval_method: dense
 
 compression:
-  alpha: 0.7
-  beta: 0.3
+  alpha: 0.6
+  beta: 0.4
   redundancy_threshold: 0.85
-  token_budget: 300
+  token_budget: 450
+  hotpotqa_token_budget: 500
   spacy_model: en_core_web_sm
 
 generation:

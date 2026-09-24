@@ -95,7 +95,11 @@ class EvidenceAwareCompressor:
         timings['redundancy_filtering'] = time.time() - t0
         
         t0 = time.time()
-        token_budget = getattr(self.config, 'token_budget', 1000)
+        '''token_budget = getattr(self.config, 'token_budget', 1000)'''
+        if dataset == "hotpot" and hasattr(self.config, 'hotpotqa_token_budget'):
+            token_budget = self.config.hotpotqa_token_budget
+        else:
+            token_budget = getattr(self.config, 'token_budget', 300)
         selected = self.budget_selector.select(surviving, budget=token_budget, q_type=q_type, q_details=q_details)
         timings['budget_selection'] = time.time() - t0
         

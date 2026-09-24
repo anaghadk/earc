@@ -197,3 +197,153 @@ def compute_overall_summary(
         "avg_latency": float(np.mean(e2e_lats)),
         "total_runtime_s": float(np.sum(e2e_lats)),
     }
+#added by anjana -> bootstrap significance test as per paper
+
+def paired_bootstrap_test(
+    results_a: list[ExperimentResult],
+    results_b: list[ExperimentResult],
+    metric: str = "f1",
+    n_resamples: int = 5000,
+    seed: int = 42,
+) -> dict[str, Any]:
+    """
+    Two-sided paired bootstrap significance test between two methods.
+    Call this with EARC results as results_a, baseline as results_b.
+    Both lists must be aligned — same questions in same order.
+
+    Args:
+        results_a:   Method A results (e.g. EARC)
+        results_b:   Method B results (e.g. LLMLingua-2)
+        metric:      'f1' or 'exact_match'
+        n_resamples: Bootstrap iterations (5000 for paper)
+        seed:        Random seed for reproducibility
+
+    Returns:
+        dict with observed_delta, p_value, significant, ci_lower, ci_upper
+    """
+    if len(results_a) != len(results_b):
+        raise ValueError(
+            f"Lists must be same length. Got {len(results_a)} vs {len(results_b)}. "
+            "Ensure both are aligned to the same question set."
+        )
+
+    rng = np.random.default_rng(seed)
+
+    if metric == "f1":
+        scores_a = np.array([r.f1 for r in results_a])
+        scores_b = np.array([r.f1 for r in results_b])
+    elif metric == "exact_match":
+        scores_a = np.array([r.exact_match for r in results_a])
+        scores_b = np.array([r.exact_match for r in results_b])
+    else:
+        raise ValueError(f"metric must be 'f1' or 'exact_match', got '{metric}'")
+
+    diffs = scores_a - scores_b
+    observed_delta = float(np.mean(diffs))
+    n = len(diffs)
+
+    # Paired bootstrap — resample differences with replacement
+    boot_deltas = np.array([
+        np.mean(rng.choice(diffs, size=n, replace=True))
+        for _ in range(n_resamples)
+    ])
+
+    # Two-sided p-value: proportion of bootstrap deltas as extreme as observed
+    # Shift distribution to null (mean=0) before computing p-value
+    shifted = boot_deltas - np.mean(boot_deltas)
+    p_value = float(np.mean(np.abs(shifted) >= abs(observed_delta)))
+
+    # 95% confidence interval
+    ci_lower = float(np.percentile(boot_deltas, 2.5))
+    ci_upper = float(np.percentile(boot_deltas, 97.5))
+
+    return {
+        "metric": metric,
+        "n_pairs": n,
+        "observed_delta": round(observed_delta, 4),
+        "p_value": round(p_value, 4),
+        "significant": p_value < 0.05,
+        "ci_lower": round(ci_lower, 4),
+        "ci_upper": round(ci_upper, 4),
+        "n_resamples": n_resamples,
+    }
+
+
+def run_all_significance_tests(
+    earc_results: list[ExperimentResult],
+    baseline_results: dict[str, list[ExperimentResult]],
+    n_resamples: int = 5000,
+    seed: int = 42,
+) -> dict[str, dict[str, Any]]:
+    """
+    Run paired bootstrap tests for EARC vs every baseline, per dataset.
+
+    Args:
+        earc_results:     All EARC ExperimentResults
+        baseline_results: Dict of method_name -> list of ExperimentResults
+                          e.g. {"standard_rag": [...], "llmlinguia2": [...]}
+        n_resamples:      From config evaluation.significance_resamples
+        seed:             From config data.seed
+
+    Returns:
+        Nested dict: baseline_name -> dataset -> {f1: {...}, exact_match: {...}}
+
+    Usage:
+        tests = run_all_significance_tests(
+            earc_results=earc_results,
+            baseline_results={
+                "standard_rag":  standard_rag_results,
+                "top_k":         topk_results,
+                "llmlinguia2":   llmlinguia2_results,
+            },
+            n_resamples=cfg.evaluation.significance_resamples,
+            seed=cfg.data.seed,
+        )
+    """
+    # Group by dataset
+    def _by_dataset(results):
+        grouped = defaultdict(list)
+        for r in results:
+            grouped[r.dataset].append(r)
+        return grouped
+
+    earc_by_ds = _by_dataset(earc_results)
+    output = {}
+
+    for baseline_name, baseline_list in baseline_results.items():
+        output[baseline_name] = {}
+        baseline_by_ds = _by_dataset(baseline_list)
+
+        for dataset in earc_by_ds:
+            if dataset not in baseline_by_ds:
+                logger.warning(
+                    "Dataset '%s' missing from baseline '%s' — skipping.",
+                    dataset, baseline_name,
+                )
+                continue
+
+            a = earc_by_ds[dataset]
+            b = baseline_by_ds[dataset]
+
+            if len(a) != len(b):
+                logger.warning(
+                    "Mismatched counts for dataset '%s', baseline '%s': "
+                    "%d vs %d — skipping.",
+                    dataset, baseline_name, len(a), len(b),
+                )
+                continue
+
+            output[baseline_name][dataset] = {
+                "f1":           paired_bootstrap_test(a, b, "f1",           n_resamples, seed),
+                "exact_match":  paired_bootstrap_test(a, b, "exact_match",  n_resamples, seed),
+            }
+
+            logger.info(
+                "Bootstrap [%s vs %s | %s] — ΔF1=%.4f p=%.4f %s",
+                "EARC", baseline_name, dataset,
+                output[baseline_name][dataset]["f1"]["observed_delta"],
+                output[baseline_name][dataset]["f1"]["p_value"],
+                "✓ sig" if output[baseline_name][dataset]["f1"]["significant"] else "✗ n.s.",
+            )
+
+    return output

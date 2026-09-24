@@ -65,7 +65,7 @@ class UIEARCPipeline:
             self.provider_name = self.config.generation.default_provider
 
         # Initialize shared backend components
-        rag_dir = getattr(self.config.retrieval, "rag_project_dir", "RAG_Project")
+        rag_dir = getattr(self.config.retrieval, "rag_project_dir", "RAG_Project") or "RAG_Project"
         self.retriever = RAGProjectRetriever(
             rag_dir=rag_dir,
             model_name=self.config.retrieval.embedding_model,

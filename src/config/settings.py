@@ -41,7 +41,7 @@ class RetrievalConfig(BaseModel):
     index_dir: str = Field(default="data/indexes")
     hybrid_bm25_weight: float = Field(default=0.5, ge=0.0, le=1.0)
     hybrid_dense_weight: float = Field(default=0.5, ge=0.0, le=1.0)
-    rag_project_dir: Optional[str] = Field(default=None, description="Path to RAG_Project dir; enables RAGProjectRetriever when set")
+    rag_project_dir: Optional[str] = Field(default="RAG_Project", description="Path to RAG_Project dir; enables RAGProjectRetriever when set")
     retrieval_method: str = Field(default="hybrid", description="Retrieval mode: dense | bm25 | hybrid")
 
 

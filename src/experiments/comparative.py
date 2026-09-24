@@ -98,3 +98,17 @@ class ComparativeExperiments:
                 results[provider_name][dataset_name] = aggregated
                 
         return results
+
+    def run_final_evaluation(
+        self,
+        limit: int = 1000,
+        output_dir: str | Path = "outputs/final_evaluation",
+        seed: int = 42,
+    ) -> Dict:
+        """Runs the full 4-method x 3-dataset x 2-LLM evaluation."""
+        from scripts.run_final_evaluation import run_evaluation
+        return run_evaluation(
+            limit=limit,
+            output_dir_str=str(output_dir),
+            seed=seed,
+        )

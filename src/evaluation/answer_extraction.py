@@ -22,7 +22,7 @@ import re
 # Patterns ordered from most-specific to least-specific.
 # Each pattern must capture the answer in group 1.
 # ---------------------------------------------------------------------------
-_ANSWER_PATTERNS: list[re.Pattern[str]] = [
+'''_ANSWER_PATTERNS: list[re.Pattern[str]] = [
     # "The answer to the question is X."
     re.compile(
         r"[Tt]he\s+answer\s+to\s+the\s+question\s+is\s+[:\-]?\s*(.+?)(?:[.\n]|$)",
@@ -61,6 +61,49 @@ _ANSWER_PATTERNS: list[re.Pattern[str]] = [
     # "Based on the evidence[,] X ..."
     re.compile(
         r"[Bb]ased\s+on\s+(?:the\s+)?evidence[,\s]+(?:the\s+answer\s+is\s+)?(.+?)(?:[.\n]|$)",
+        re.IGNORECASE,
+    ),
+]'''
+#changed by anjana
+_ANSWER_PATTERNS: list[re.Pattern[str]] = [
+    # "The answer to the question is X."
+    re.compile(
+        r"[Tt]he\s+answer\s+to\s+the\s+question\s+is\s+[:\-]?\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "The correct answer is X."
+    re.compile(
+        r"[Tt]he\s+correct\s+answer\s+is\s+[:\-]?\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "The answer is X."
+    re.compile(
+        r"[Tt]he\s+answer\s+is\s+[:\-]?\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "Final answer: X"
+    re.compile(
+        r"[Ff]inal\s+[Aa]nswer\s*[:\-]\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "Answer: X"
+    re.compile(
+        r"^[Aa]nswer\s*[:\-]\s*(.+?)(?:\n|$)",
+        re.MULTILINE,
+    ),
+    # "Therefore, the answer is X."
+    re.compile(
+        r"[Tt]herefore[,\s]+(?:the\s+)?answer\s+is\s+[:\-]?\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "So the answer is X."  /  "Thus the answer is X."
+    re.compile(
+        r"(?:[Ss]o|[Tt]hus)[,\s]+(?:the\s+)?answer\s+is\s+[:\-]?\s*(.+?)(?:\n|$)",
+        re.IGNORECASE,
+    ),
+    # "Based on the evidence[,] X ..."
+    re.compile(
+        r"[Bb]ased\s+on\s+(?:the\s+)?evidence[,\s]+(?:the\s+answer\s+is\s+)?(.+?)(?:\n|$)",
         re.IGNORECASE,
     ),
 ]

@@ -52,32 +52,40 @@ def normalize_answer(answer: str) -> str:
 
     return text.strip()
 
+#changed
+# src/evaluation/exact_match.py — add inside exact_match_score()
 
 def exact_match_score(
     prediction: str,
     gold_answers: list[str],
 ) -> float:
-    """
-    Compute exact match score.
-
-    Returns 1.0 if the normalized prediction matches ANY of the
-    normalized gold answers, 0.0 otherwise.
-
-    Args:
-        prediction: Model's predicted answer.
-        gold_answers: List of acceptable gold answers (including aliases).
-
-    Returns:
-        1.0 or 0.0
-    """
     if not prediction or not gold_answers:
         return 0.0
 
     norm_pred = normalize_answer(prediction)
 
     for gold in gold_answers:
-        if normalize_answer(gold) == norm_pred:
+        norm_gold = normalize_answer(gold)
+        if not norm_gold:
+            continue
+
+        # Level 1: Strict
+        if norm_pred == norm_gold:
             return 1.0
+
+        # Level 2: Containment
+        if norm_gold in norm_pred or norm_pred in norm_gold:
+            return 1.0
+
+        # Level 3: Token overlap
+        pred_tokens = set(norm_pred.split())
+        gold_tokens = set(norm_gold.split())
+        if gold_tokens and len(gold_tokens) <= len(pred_tokens):
+            if gold_tokens.issubset(pred_tokens):
+                return 1.0
+        elif pred_tokens and len(pred_tokens) < len(gold_tokens):
+            if pred_tokens.issubset(gold_tokens):
+                return 1.0
 
     return 0.0
 

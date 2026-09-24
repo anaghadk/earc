@@ -30,7 +30,7 @@ class RedundancyFilter:
     def filter(
         self,
         candidates: List[CandidateSentence],
-        threshold: float = 0.85,
+        threshold: float = 0.75,
     ) -> List[CandidateSentence]:
         """
         Filter redundant candidates using cosine similarity threshold.

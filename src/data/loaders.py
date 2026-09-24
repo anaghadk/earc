@@ -11,6 +11,32 @@ logger = logging.getLogger(__name__)
 class NQLoader:
     def load(self, split: str = 'train', cache_dir: Optional[str] = None) -> List[QAExample]:
         logger.info(f"Loading nq_open dataset, split: {split}")
+
+        # 1. Prefer pre-extracted QA pairs aligned with RAG_Project corpus
+        rag_qa_dir = Path("RAG_Project/qa_pairs")
+        if rag_qa_dir.exists():
+            pkl_files = sorted(rag_qa_dir.glob("qa_*.pkl"))
+            if pkl_files:
+                examples = []
+                for pkl_file in pkl_files:
+                    with open(pkl_file, "rb") as f:
+                        items = pickle.load(f)
+                    for item in items:
+                        if item.get("dataset") == "nq":
+                            q = item["question"].strip()
+                            ans = [a.strip() for a in item.get("answers", []) if a.strip()]
+                            examples.append(QAExample(
+                                id=item.get("question_id", q),
+                                dataset="nq",
+                                question=q,
+                                answers=ans,
+                                documents=[]
+                            ))
+                if examples:
+                    logger.info(f"Loaded {len(examples)} NQ examples from {rag_qa_dir}")
+                    return examples
+
+        # 2. Fallback to HuggingFace
         try:
             dataset = hf_load_dataset('google-research-datasets/nq_open', split=split, cache_dir=cache_dir)
         except Exception as e:
@@ -35,7 +61,33 @@ class NQLoader:
 
 class HotpotQALoader:
     def load(self, split: str = 'train', cache_dir: Optional[str] = None) -> List[QAExample]:
-        logger.info(f"Loading hotpot_qa (distractor) dataset, split: {split}")
+        logger.info(f"Loading hotpot_qa dataset, split: {split}")
+
+        # 1. Prefer pre-extracted QA pairs aligned with RAG_Project corpus
+        rag_qa_dir = Path("RAG_Project/qa_pairs")
+        if rag_qa_dir.exists():
+            pkl_files = sorted(rag_qa_dir.glob("qa_*.pkl"))
+            if pkl_files:
+                examples = []
+                for pkl_file in pkl_files:
+                    with open(pkl_file, "rb") as f:
+                        items = pickle.load(f)
+                    for item in items:
+                        if item.get("dataset") == "hotpot":
+                            q = item["question"].strip()
+                            ans = [a.strip() for a in item.get("answers", []) if a.strip()]
+                            examples.append(QAExample(
+                                id=item.get("question_id", q),
+                                dataset="hotpotqa",
+                                question=q,
+                                answers=ans,
+                                documents=[]
+                            ))
+                if examples:
+                    logger.info(f"Loaded {len(examples)} HotpotQA examples from {rag_qa_dir}")
+                    return examples
+
+        # 2. Fallback to HuggingFace
         try:
             dataset = hf_load_dataset('hotpotqa/hotpot_qa', 'distractor', split=split, cache_dir=cache_dir)
         except Exception as e:
