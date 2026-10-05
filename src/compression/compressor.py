@@ -90,8 +90,12 @@ class EvidenceAwareCompressor:
         timings['ranking'] = time.time() - t0
         
         t0 = time.time()
-        threshold = getattr(self.config, 'redundancy_threshold', 0.85)
-        surviving = self.redundancy_filter.filter(candidates, threshold=threshold)
+        use_redundancy = getattr(self.config, 'use_redundancy', True)
+        if use_redundancy:
+            threshold = getattr(self.config, 'redundancy_threshold', 0.85)
+            surviving = self.redundancy_filter.filter(candidates, threshold=threshold)
+        else:
+            surviving = candidates
         timings['redundancy_filtering'] = time.time() - t0
         
         t0 = time.time()

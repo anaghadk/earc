@@ -54,6 +54,7 @@ class CompressionConfig(BaseModel):
         description="Cross-document redundancy cosine threshold (tau)"
     )
     token_budget: int = Field(default=200, ge=0, description="Token budget T")
+    use_redundancy: bool = Field(default=True, description="Enable cross-document redundancy filtering")
     spacy_model: str = Field(default="en_core_web_sm")
     stopwords: list[str] = Field(default_factory=list, description="Extra stopwords")
     use_regex_fallback: bool = Field(default=True)

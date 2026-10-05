@@ -1,0 +1,44 @@
+experiment:
+  name: "alpha_beta_sensitivity"
+  description: "Sensitivity analysis for EARC hybrid scoring function H(s) = alpha * Sim(q,s) + beta * Evidence(s)"
+  fixed_settings:
+    redundancy_threshold: 0.85
+    use_redundancy: true
+    token_budget: 300
+    top_k: 10
+    embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+    retrieval_method: "dense"
+    temperature: 0.0
+
+  grid:
+    - alpha: 1.0
+      beta: 0.0
+      name: "alpha_1.0_beta_0.0"
+    - alpha: 0.9
+      beta: 0.1
+      name: "alpha_0.9_beta_0.1"
+    - alpha: 0.8
+      beta: 0.2
+      name: "alpha_0.8_beta_0.2"
+    - alpha: 0.7
+      beta: 0.3
+      name: "alpha_0.7_beta_0.3"
+      is_production: true
+    - alpha: 0.6
+      beta: 0.4
+      name: "alpha_0.6_beta_0.4"
+    - alpha: 0.5
+      beta: 0.5
+      name: "alpha_0.5_beta_0.5"
+    - alpha: 0.4
+      beta: 0.6
+      name: "alpha_0.4_beta_0.6"
+    - alpha: 0.3
+      beta: 0.7
+      name: "alpha_0.3_beta_0.7"
+    - alpha: 0.2
+      beta: 0.8
+      name: "alpha_0.2_beta_0.8"
+    - alpha: 0.0
+      beta: 1.0
+      name: "alpha_0.0_beta_1.0"

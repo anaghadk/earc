@@ -1,17 +1,45 @@
 ablations:
-  similarity_only:
+  A1_semantic_only:
+    label: "A1: Semantic-only"
     alpha: 1.0
     beta: 0.0
-    redundancy_filtering: false
-  evidence_only:
+    use_redundancy: false
+    redundancy_threshold: 0.85
+    token_budget: 300
+    description: "H(s) = Sim(q,s) without redundancy filtering"
+
+  A2_semantic_evidence:
+    label: "A2: Semantic + Evidence"
+    alpha: 0.7
+    beta: 0.3
+    use_redundancy: false
+    redundancy_threshold: 0.85
+    token_budget: 300
+    description: "H(s) = 0.7*Sim(q,s) + 0.3*Evidence(s) without redundancy filtering"
+
+  A3_semantic_redundancy:
+    label: "A3: Semantic + Redundancy"
+    alpha: 1.0
+    beta: 0.0
+    use_redundancy: true
+    redundancy_threshold: 0.85
+    token_budget: 300
+    description: "Semantic relevance ranking with redundancy filtering (tau=0.85), no evidence scoring"
+
+  A4_evidence_redundancy:
+    label: "A4: Evidence + Redundancy"
     alpha: 0.0
     beta: 1.0
-    redundancy_filtering: false
-  similarity_evidence:
+    use_redundancy: true
+    redundancy_threshold: 0.85
+    token_budget: 300
+    description: "Evidence score ranking with redundancy filtering (tau=0.85), no semantic relevance"
+
+  A5_full_earc:
+    label: "A5: Full EARC"
     alpha: 0.7
     beta: 0.3
-    redundancy_filtering: false
-  full_method:
-    alpha: 0.7
-    beta: 0.3
-    redundancy_filtering: true
+    use_redundancy: true
+    redundancy_threshold: 0.85
+    token_budget: 300
+    description: "Full EARC: Semantic relevance + evidence scoring + redundancy filtering + budget selection"

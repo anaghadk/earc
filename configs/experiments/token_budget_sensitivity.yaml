@@ -1,0 +1,29 @@
+experiment:
+  name: "token_budget_sensitivity"
+  description: "Token budget sensitivity analysis for EARC across varying context constraints"
+  fixed_settings:
+    alpha: 0.7
+    beta: 0.3
+    redundancy_threshold: 0.85
+    use_redundancy: true
+    top_k: 10
+    embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+    retrieval_method: "dense"
+    temperature: 0.0
+
+  budgets:
+    - budget: 100
+      name: "budget_100"
+    - budget: 150
+      name: "budget_150"
+    - budget: 200
+      name: "budget_200"
+    - budget: 300
+      name: "budget_300"
+      is_production: true
+    - budget: 400
+      name: "budget_400"
+    - budget: 500
+      name: "budget_500"
+    - budget: 750
+      name: "budget_750"
