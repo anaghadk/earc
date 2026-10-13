@@ -47,3 +47,6 @@ notebooks/*.html
 *.swo
 # Large local RAG_Project artifacts
 RAG_Project/
+
+runs.zip
+task1_raw_files.zip

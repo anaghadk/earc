@@ -24,8 +24,9 @@ if _PROJECT_ROOT not in sys.path:
 os.chdir(_PROJECT_ROOT)
 
 # Ensure Mistral API key is available from environment or fallback
+# Ensure MISTRAL_API_KEY is read from environment
 if not os.environ.get("MISTRAL_API_KEY"):
-    os.environ["MISTRAL_API_KEY"] = "lIK71q2MhMrZXQwxYE0nVUvoNNUVjQzy"
+    pass
 
 st.set_page_config(
     page_title="EARC · Grounded QA",

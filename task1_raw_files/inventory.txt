@@ -1,0 +1,717 @@
+607566f1a2739f9fce6c2cbf4bff34b5a409269c 2026-10-07 18:41:41 +0530
+?? runs/
+?? scripts/generate_inventory.py
+?? scripts/prepare_runs_and_raw.py
+?? scripts/run_first20_hotpot.py
+?? scripts/run_first20_nq.py
+?? scripts/run_first20_triviaqa.py
+?? scripts/test_single_question.py
+?? task1_raw_files/
+4573 ./data/processed/nq.jsonl
+14425 ./data/processed/nq_passages.jsonl
+172899 ./outputs/ablations/evidence_only/hotpotqa/ollama/predictions.jsonl
+122476 ./outputs/ablations/evidence_only/nq/ollama/predictions.jsonl
+132507 ./outputs/ablations/evidence_only/triviaqa/ollama/predictions.jsonl
+173199 ./outputs/ablations/full_method/hotpotqa/ollama/predictions.jsonl
+122766 ./outputs/ablations/full_method/nq/ollama/predictions.jsonl
+132688 ./outputs/ablations/full_method/triviaqa/ollama/predictions.jsonl
+173299 ./outputs/ablations/similarity_evidence/hotpotqa/ollama/predictions.jsonl
+122910 ./outputs/ablations/similarity_evidence/nq/ollama/predictions.jsonl
+132799 ./outputs/ablations/similarity_evidence/triviaqa/ollama/predictions.jsonl
+173907 ./outputs/ablations/similarity_only/hotpotqa/ollama/predictions.jsonl
+123769 ./outputs/ablations/similarity_only/nq/ollama/predictions.jsonl
+133110 ./outputs/ablations/similarity_only/triviaqa/ollama/predictions.jsonl
+250381 ./outputs/baselines/standard_rag/hotpotqa/ollama/predictions.jsonl
+152471 ./outputs/baselines/standard_rag/nq/ollama/predictions.jsonl
+165846 ./outputs/baselines/standard_rag/triviaqa/ollama/predictions.jsonl
+173688 ./outputs/baselines/topk/hotpotqa/ollama/predictions.jsonl
+123548 ./outputs/baselines/topk/nq/ollama/predictions.jsonl
+132895 ./outputs/baselines/topk/triviaqa/ollama/predictions.jsonl
+89932 ./outputs/comprehensive_diagnostic_20260914_180923/eval_results_raw.jsonl
+164756 ./outputs/comprehensive_diagnostic_20260914_180923/predictions_all_configs.jsonl
+116028 ./outputs/comprehensive_diagnostic_20260914_180923/predictions_paired.jsonl
+7089 ./outputs/debug_run/hotpotqa/ollama/predictions.jsonl
+49650 ./outputs/diagnostic_dense_topk/dense_k10/nq/predictions.jsonl
+55352 ./outputs/diagnostic_dense_topk/dense_k10/triviaqa/predictions.jsonl
+30571 ./outputs/diagnostic_dense_topk/dense_k5/nq/predictions.jsonl
+33447 ./outputs/diagnostic_dense_topk/dense_k5/triviaqa/predictions.jsonl
+49656 ./outputs/diagnostic_prompt_instruction/current_prompt/nq/predictions.jsonl
+55360 ./outputs/diagnostic_prompt_instruction/current_prompt/triviaqa/predictions.jsonl
+49661 ./outputs/diagnostic_prompt_instruction/improved_prompt/nq/predictions.jsonl
+55291 ./outputs/diagnostic_prompt_instruction/improved_prompt/triviaqa/predictions.jsonl
+771 ./outputs/run_20260913_215204/hotpotqa/ollama/predictions.jsonl
+783 ./outputs/run_20260913_215528/hotpotqa/ollama/predictions.jsonl
+7088 ./outputs/run_20260913_215913/hotpotqa/ollama/predictions.jsonl
+7031 ./outputs/run_20260913_221500/hotpotqa/ollama/predictions.jsonl
+37745 ./outputs/run_20260913_221653/hotpotqa/ollama/predictions.jsonl
+42617 ./outputs/run_20260913_223931/hotpotqa/ollama/predictions.jsonl
+41597 ./outputs/run_20260913_224725/hotpotqa/ollama/predictions.jsonl
+164596 ./outputs/run_20260913_230000/hotpotqa/ollama/predictions.jsonl
+164616 ./outputs/run_20260913_230830/hotpotqa/ollama/predictions.jsonl
+173086 ./outputs/run_20260913_231042/hotpotqa/ollama/predictions.jsonl
+172925 ./outputs/run_20260913_232148/hotpotqa/ollama/predictions.jsonl
+173088 ./outputs/run_20260914_003014/hotpotqa/ollama/predictions.jsonl
+173100 ./outputs/run_20260914_003028/hotpotqa/ollama/predictions.jsonl
+19626 ./outputs/run_20260914_003656/nq/ollama/predictions.jsonl
+19679 ./outputs/run_20260914_011746/nq/ollama/predictions.jsonl
+6109 ./outputs/run_20260914_014846/nq/ollama/predictions.jsonl
+124647 ./outputs/run_20260914_015653/nq/ollama/predictions.jsonl
+5317 ./outputs/run_20260914_022150/nq/ollama/predictions.jsonl
+72128 ./outputs/run_20260914_022440/nq/ollama/predictions.jsonl
+61501 ./outputs/run_20260914_023523/nq/ollama/predictions.jsonl
+5895 ./outputs/run_20260914_095114/bm25/nq/ollama/predictions.jsonl
+6045 ./outputs/run_20260914_095114/dense/nq/ollama/predictions.jsonl
+5325 ./outputs/run_20260914_095114/hybrid/nq/ollama/predictions.jsonl
+125645 ./outputs/run_20260914_095342/bm25/nq/ollama/predictions.jsonl
+123278 ./outputs/run_20260914_095342/dense/nq/ollama/predictions.jsonl
+122890 ./outputs/run_20260914_095342/hybrid/nq/ollama/predictions.jsonl
+173247 ./outputs/run_20260914_102146/bm25/hotpotqa/ollama/predictions.jsonl
+173268 ./outputs/run_20260914_102146/dense/hotpotqa/ollama/predictions.jsonl
+173229 ./outputs/run_20260914_102146/hybrid/hotpotqa/ollama/predictions.jsonl
+6998 ./outputs/run_20260914_103829/hybrid/triviaqa/ollama/predictions.jsonl
+131860 ./outputs/run_20260914_104208/bm25/triviaqa/ollama/predictions.jsonl
+131064 ./outputs/run_20260914_104208/dense/triviaqa/ollama/predictions.jsonl
+132742 ./outputs/run_20260914_104208/hybrid/triviaqa/ollama/predictions.jsonl
+859 ./outputs/run_20260914_112406/hybrid/hotpotqa/mistral/predictions.jsonl
+861 ./outputs/run_20260914_112406/hybrid/nq/mistral/predictions.jsonl
+817 ./outputs/run_20260914_112406/hybrid/triviaqa/mistral/predictions.jsonl
+8212 ./outputs/run_20260914_113417/hybrid/hotpotqa/mistral/predictions.jsonl
+5267 ./outputs/run_20260914_113417/hybrid/nq/mistral/predictions.jsonl
+7322 ./outputs/run_20260914_113417/hybrid/triviaqa/mistral/predictions.jsonl
+173954 ./outputs/run_20260914_114120/hybrid/hotpotqa/mistral/predictions.jsonl
+123147 ./outputs/run_20260914_114120/hybrid/nq/mistral/predictions.jsonl
+133438 ./outputs/run_20260914_114120/hybrid/triviaqa/mistral/predictions.jsonl
+172688 ./outputs/run_20260914_162039/hotpotqa/ollama/predictions.jsonl
+203627 ./outputs/run_20260914_162039/nq/ollama/predictions.jsonl
+214579 ./outputs/run_20260914_162039/triviaqa/ollama/predictions.jsonl
+253633 ./outputs/run_20260916_115629/hotpotqa/ollama/predictions.jsonl
+264184 ./outputs/run_20260916_121341/hotpotqa/ollama/predictions.jsonl
+283529 ./outputs/run_20260916_122042/nq/ollama/predictions.jsonl
+282235 ./outputs/run_20260916_122327/triviaqa/ollama/predictions.jsonl
+286103 ./outputs/run_20260916_122653/nq/ollama/predictions.jsonl
+5056 ./outputs/smoke_tests/ablations/similarity_evidence/nq/ollama/predictions.jsonl
+5194 ./outputs/smoke_tests/ablations/similarity_only/nq/ollama/predictions.jsonl
+5184 ./outputs/smoke_tests/baselines/topk/nq/ollama/predictions.jsonl
+5196 ./outputs/smoke_tests/comparative_retrievers/bm25/nq/ollama/predictions.jsonl
+5057 ./outputs/smoke_tests/comparative_retrievers/dense/nq/ollama/predictions.jsonl
+5056 ./outputs/smoke_tests/comparative_retrievers/hybrid/nq/ollama/predictions.jsonl
+56617 ./outputs/targeted_triviaqa_validation/predictions.jsonl
+204153 ./outputs/validation_dense_k5_vs_k10/dense_k10/nq/ollama/predictions.jsonl
+214848 ./outputs/validation_dense_k5_vs_k10/dense_k10/triviaqa/ollama/predictions.jsonl
+123152 ./outputs/validation_dense_k5_vs_k10/dense_k5/nq/ollama/predictions.jsonl
+130974 ./outputs/validation_dense_k5_vs_k10/dense_k5/triviaqa/ollama/predictions.jsonl
+14060 ./recovered_outputs/outputs/ablations/mistral/hotpot/A1_semantic_only/predictions.jsonl
+13918 ./recovered_outputs/outputs/ablations/mistral/hotpot/A2_semantic_evidence/predictions.jsonl
+14222 ./recovered_outputs/outputs/ablations/mistral/hotpot/A3_semantic_redundancy/predictions.jsonl
+14335 ./recovered_outputs/outputs/ablations/mistral/hotpot/A4_evidence_redundancy/predictions.jsonl
+16506 ./recovered_outputs/outputs/ablations/mistral/hotpot/A5_full_earc/predictions.jsonl
+12607 ./recovered_outputs/outputs/ablations/mistral/nq/A1_semantic_only/predictions.jsonl
+12756 ./recovered_outputs/outputs/ablations/mistral/nq/A2_semantic_evidence/predictions.jsonl
+12650 ./recovered_outputs/outputs/ablations/mistral/nq/A3_semantic_redundancy/predictions.jsonl
+12512 ./recovered_outputs/outputs/ablations/mistral/nq/A4_evidence_redundancy/predictions.jsonl
+15086 ./recovered_outputs/outputs/ablations/mistral/nq/A5_full_earc/predictions.jsonl
+13035 ./recovered_outputs/outputs/ablations/mistral/trivia/A1_semantic_only/predictions.jsonl
+13711 ./recovered_outputs/outputs/ablations/mistral/trivia/A2_semantic_evidence/predictions.jsonl
+13157 ./recovered_outputs/outputs/ablations/mistral/trivia/A3_semantic_redundancy/predictions.jsonl
+13619 ./recovered_outputs/outputs/ablations/mistral/trivia/A4_evidence_redundancy/predictions.jsonl
+16575 ./recovered_outputs/outputs/ablations/mistral/trivia/A5_full_earc/predictions.jsonl
+13697 ./recovered_outputs/outputs/ablations/ollama/hotpot/A1_semantic_only/predictions.jsonl
+14055 ./recovered_outputs/outputs/ablations/ollama/hotpot/A2_semantic_evidence/predictions.jsonl
+13813 ./recovered_outputs/outputs/ablations/ollama/hotpot/A3_semantic_redundancy/predictions.jsonl
+14048 ./recovered_outputs/outputs/ablations/ollama/hotpot/A4_evidence_redundancy/predictions.jsonl
+16549 ./recovered_outputs/outputs/ablations/ollama/hotpot/A5_full_earc/predictions.jsonl
+11998 ./recovered_outputs/outputs/ablations/ollama/nq/A1_semantic_only/predictions.jsonl
+12218 ./recovered_outputs/outputs/ablations/ollama/nq/A2_semantic_evidence/predictions.jsonl
+12142 ./recovered_outputs/outputs/ablations/ollama/nq/A3_semantic_redundancy/predictions.jsonl
+12246 ./recovered_outputs/outputs/ablations/ollama/nq/A4_evidence_redundancy/predictions.jsonl
+14875 ./recovered_outputs/outputs/ablations/ollama/nq/A5_full_earc/predictions.jsonl
+12527 ./recovered_outputs/outputs/ablations/ollama/trivia/A1_semantic_only/predictions.jsonl
+12615 ./recovered_outputs/outputs/ablations/ollama/trivia/A2_semantic_evidence/predictions.jsonl
+12642 ./recovered_outputs/outputs/ablations/ollama/trivia/A3_semantic_redundancy/predictions.jsonl
+12658 ./recovered_outputs/outputs/ablations/ollama/trivia/A4_evidence_redundancy/predictions.jsonl
+15131 ./recovered_outputs/outputs/ablations/ollama/trivia/A5_full_earc/predictions.jsonl
+820929 ./recovered_outputs/outputs/final_evaluation/mistral/hotpot/earc/predictions.jsonl
+816214 ./recovered_outputs/outputs/final_evaluation/mistral/hotpot/llmlingua2/predictions.jsonl
+842079 ./recovered_outputs/outputs/final_evaluation/mistral/hotpot/standard_rag/predictions.jsonl
+835378 ./recovered_outputs/outputs/final_evaluation/mistral/hotpot/topk/predictions.jsonl
+776237 ./recovered_outputs/outputs/final_evaluation/mistral/nq/earc/predictions.jsonl
+757627 ./recovered_outputs/outputs/final_evaluation/mistral/nq/llmlingua2/predictions.jsonl
+805056 ./recovered_outputs/outputs/final_evaluation/mistral/nq/standard_rag/predictions.jsonl
+795300 ./recovered_outputs/outputs/final_evaluation/mistral/nq/topk/predictions.jsonl
+786073 ./recovered_outputs/outputs/final_evaluation/mistral/trivia/earc/predictions.jsonl
+774820 ./recovered_outputs/outputs/final_evaluation/mistral/trivia/llmlingua2/predictions.jsonl
+795377 ./recovered_outputs/outputs/final_evaluation/mistral/trivia/standard_rag/predictions.jsonl
+789054 ./recovered_outputs/outputs/final_evaluation/mistral/trivia/topk/predictions.jsonl
+801899 ./recovered_outputs/outputs/final_evaluation/ollama/hotpot/earc/predictions.jsonl
+803823 ./recovered_outputs/outputs/final_evaluation/ollama/hotpot/llmlingua2/predictions.jsonl
+822549 ./recovered_outputs/outputs/final_evaluation/ollama/hotpot/standard_rag/predictions.jsonl
+810849 ./recovered_outputs/outputs/final_evaluation/ollama/hotpot/topk/predictions.jsonl
+750516 ./recovered_outputs/outputs/final_evaluation/ollama/nq/earc/predictions.jsonl
+739055 ./recovered_outputs/outputs/final_evaluation/ollama/nq/llmlingua2/predictions.jsonl
+751389 ./recovered_outputs/outputs/final_evaluation/ollama/nq/standard_rag/predictions.jsonl
+746090 ./recovered_outputs/outputs/final_evaluation/ollama/nq/topk/predictions.jsonl
+767065 ./recovered_outputs/outputs/final_evaluation/ollama/trivia/earc/predictions.jsonl
+766764 ./recovered_outputs/outputs/final_evaluation/ollama/trivia/llmlingua2/predictions.jsonl
+780771 ./recovered_outputs/outputs/final_evaluation/ollama/trivia/standard_rag/predictions.jsonl
+770433 ./recovered_outputs/outputs/final_evaluation/ollama/trivia/topk/predictions.jsonl
+470184 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_hotpotqa_llama3.2_3b.jsonl
+477953 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_hotpotqa_ministral-8b.jsonl
+472935 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_nq_llama3.2_3b.jsonl
+492507 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_nq_ministral-8b.jsonl
+459185 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_triviaqa_llama3.2_3b.jsonl
+462327 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A1_triviaqa_ministral-8b.jsonl
+474862 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_hotpotqa_llama3.2_3b.jsonl
+481066 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_hotpotqa_ministral-8b.jsonl
+478362 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_nq_llama3.2_3b.jsonl
+498112 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_nq_ministral-8b.jsonl
+462413 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_triviaqa_llama3.2_3b.jsonl
+469856 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A2_triviaqa_ministral-8b.jsonl
+472135 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_hotpotqa_llama3.2_3b.jsonl
+478658 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_hotpotqa_ministral-8b.jsonl
+474154 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_nq_llama3.2_3b.jsonl
+496413 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_nq_ministral-8b.jsonl
+461921 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_triviaqa_llama3.2_3b.jsonl
+470946 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A3_triviaqa_ministral-8b.jsonl
+470626 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_hotpotqa_llama3.2_3b.jsonl
+478493 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_hotpotqa_ministral-8b.jsonl
+470370 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_nq_llama3.2_3b.jsonl
+492042 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_nq_ministral-8b.jsonl
+459964 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_triviaqa_llama3.2_3b.jsonl
+462765 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A4_triviaqa_ministral-8b.jsonl
+472947 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_hotpotqa_llama3.2_3b.jsonl
+480998 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_hotpotqa_ministral-8b.jsonl
+479603 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_nq_llama3.2_3b.jsonl
+494322 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_nq_ministral-8b.jsonl
+465736 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_triviaqa_llama3.2_3b.jsonl
+473733 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_A5_triviaqa_ministral-8b.jsonl
+471586 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_hotpotqa_llama3.2_3b.jsonl
+479763 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_hotpotqa_ministral-8b.jsonl
+470116 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_nq_llama3.2_3b.jsonl
+497270 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_nq_ministral-8b.jsonl
+461357 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_triviaqa_llama3.2_3b.jsonl
+462559 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B1_triviaqa_ministral-8b.jsonl
+473414 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_hotpotqa_llama3.2_3b.jsonl
+479757 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_hotpotqa_ministral-8b.jsonl
+471404 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_nq_llama3.2_3b.jsonl
+494027 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_nq_ministral-8b.jsonl
+460836 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_triviaqa_llama3.2_3b.jsonl
+465927 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B2_triviaqa_ministral-8b.jsonl
+473617 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_hotpotqa_llama3.2_3b.jsonl
+479668 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_hotpotqa_ministral-8b.jsonl
+475414 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_nq_llama3.2_3b.jsonl
+495453 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_nq_ministral-8b.jsonl
+460777 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_triviaqa_llama3.2_3b.jsonl
+470197 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/predictions/pred_B3_triviaqa_ministral-8b.jsonl
+432415 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b150_llama3.2_3b.jsonl
+440457 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b150_ministral-8b.jsonl
+426947 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b300_llama3.2_3b.jsonl
+434998 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b300_ministral-8b.jsonl
+432430 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b450_llama3.2_3b.jsonl
+440197 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b450_ministral-8b.jsonl
+430122 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b600_llama3.2_3b.jsonl
+442060 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_hotpotqa_b600_ministral-8b.jsonl
+433603 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_nq_b300_llama3.2_3b.jsonl
+448322 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_nq_b300_ministral-8b.jsonl
+419736 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_triviaqa_b300_llama3.2_3b.jsonl
+427733 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_earc_triviaqa_b300_ministral-8b.jsonl
+426612 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_hotpotqa_k5_llama3.2_3b.jsonl
+440169 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_hotpotqa_k5_ministral-8b.jsonl
+419953 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_nq_k5_llama3.2_3b.jsonl
+458161 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_nq_k5_ministral-8b.jsonl
+413870 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_triviaqa_k5_llama3.2_3b.jsonl
+421494 ./recovered_outputs/outputs/journal_experiments/exp2_budget/predictions/pred_topk_triviaqa_k5_ministral-8b.jsonl
+14990 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.0_beta_1.0/predictions.jsonl
+14966 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.2_beta_0.8/predictions.jsonl
+14968 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.3_beta_0.7/predictions.jsonl
+14764 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.4_beta_0.6/predictions.jsonl
+15044 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.5_beta_0.5/predictions.jsonl
+14610 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.6_beta_0.4/predictions.jsonl
+14503 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.7_beta_0.3/predictions.jsonl
+14761 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.8_beta_0.2/predictions.jsonl
+14627 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_0.9_beta_0.1/predictions.jsonl
+14747 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/hotpot/alpha_1.0_beta_0.0/predictions.jsonl
+13104 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.0_beta_1.0/predictions.jsonl
+13052 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.2_beta_0.8/predictions.jsonl
+13053 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.3_beta_0.7/predictions.jsonl
+13009 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.4_beta_0.6/predictions.jsonl
+13405 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.5_beta_0.5/predictions.jsonl
+13287 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.6_beta_0.4/predictions.jsonl
+13299 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.7_beta_0.3/predictions.jsonl
+13500 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.8_beta_0.2/predictions.jsonl
+13453 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_0.9_beta_0.1/predictions.jsonl
+13277 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/nq/alpha_1.0_beta_0.0/predictions.jsonl
+14056 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.0_beta_1.0/predictions.jsonl
+14166 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.2_beta_0.8/predictions.jsonl
+14141 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.3_beta_0.7/predictions.jsonl
+14167 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.4_beta_0.6/predictions.jsonl
+14135 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.5_beta_0.5/predictions.jsonl
+14394 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.6_beta_0.4/predictions.jsonl
+15032 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.7_beta_0.3/predictions.jsonl
+15184 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.8_beta_0.2/predictions.jsonl
+15040 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_0.9_beta_0.1/predictions.jsonl
+13746 ./recovered_outputs/outputs/sensitivity/alpha_beta/mistral/trivia/alpha_1.0_beta_0.0/predictions.jsonl
+14591 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.0_beta_1.0/predictions.jsonl
+14639 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.2_beta_0.8/predictions.jsonl
+14635 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.3_beta_0.7/predictions.jsonl
+14416 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.4_beta_0.6/predictions.jsonl
+14415 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.5_beta_0.5/predictions.jsonl
+14411 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.6_beta_0.4/predictions.jsonl
+14475 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.7_beta_0.3/predictions.jsonl
+14591 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.8_beta_0.2/predictions.jsonl
+14383 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_0.9_beta_0.1/predictions.jsonl
+14350 ./recovered_outputs/outputs/sensitivity/alpha_beta/ollama/hotpot/alpha_1.0_beta_0.0/predictions.jsonl
+14595 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_100/predictions.jsonl
+14631 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_150/predictions.jsonl
+14486 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_200/predictions.jsonl
+14503 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_300/predictions.jsonl
+14147 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_400/predictions.jsonl
+14335 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_500/predictions.jsonl
+14258 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/hotpot/budget_750/predictions.jsonl
+12920 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_100/predictions.jsonl
+12651 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_150/predictions.jsonl
+12807 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_200/predictions.jsonl
+13299 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_300/predictions.jsonl
+12922 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_400/predictions.jsonl
+12876 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_500/predictions.jsonl
+12880 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/nq/budget_750/predictions.jsonl
+13223 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_100/predictions.jsonl
+13184 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_150/predictions.jsonl
+13566 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_200/predictions.jsonl
+15032 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_300/predictions.jsonl
+15056 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_400/predictions.jsonl
+14125 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_500/predictions.jsonl
+13853 ./recovered_outputs/outputs/sensitivity/token_budget/mistral/trivia/budget_750/predictions.jsonl
+1181 ./recovered_outputs/outputs/test_ablations/ollama/nq/A1_semantic_only/predictions.jsonl
+1325 ./recovered_outputs/outputs/test_ablations/ollama/nq/A2_semantic_evidence/predictions.jsonl
+1192 ./recovered_outputs/outputs/test_ablations/ollama/nq/A3_semantic_redundancy/predictions.jsonl
+1330 ./recovered_outputs/outputs/test_ablations/ollama/nq/A4_evidence_redundancy/predictions.jsonl
+1576 ./recovered_outputs/outputs/test_ablations/ollama/nq/A5_full_earc/predictions.jsonl
+867300 ./runs/baseline/pred_baseline_hotpotqa_earc_llama3.2_3b.jsonl
+886130 ./runs/baseline/pred_baseline_hotpotqa_earc_ministral-8b.jsonl
+869226 ./runs/baseline/pred_baseline_hotpotqa_llmlingua2_llama3.2_3b.jsonl
+881486 ./runs/baseline/pred_baseline_hotpotqa_llmlingua2_ministral-8b.jsonl
+888721 ./runs/baseline/pred_baseline_hotpotqa_standard_rag_llama3.2_3b.jsonl
+908082 ./runs/baseline/pred_baseline_hotpotqa_standard_rag_ministral-8b.jsonl
+876224 ./runs/baseline/pred_baseline_hotpotqa_topk_llama3.2_3b.jsonl
+900482 ./runs/baseline/pred_baseline_hotpotqa_topk_ministral-8b.jsonl
+812040 ./runs/baseline/pred_baseline_nq_earc_llama3.2_3b.jsonl
+837526 ./runs/baseline/pred_baseline_nq_earc_ministral-8b.jsonl
+800570 ./runs/baseline/pred_baseline_nq_llmlingua2_llama3.2_3b.jsonl
+818930 ./runs/baseline/pred_baseline_nq_llmlingua2_ministral-8b.jsonl
+813894 ./runs/baseline/pred_baseline_nq_standard_rag_llama3.2_3b.jsonl
+867134 ./runs/baseline/pred_baseline_nq_standard_rag_ministral-8b.jsonl
+807642 ./runs/baseline/pred_baseline_nq_topk_llama3.2_3b.jsonl
+856411 ./runs/baseline/pred_baseline_nq_topk_ministral-8b.jsonl
+831879 ./runs/baseline/pred_baseline_triviaqa_earc_llama3.2_3b.jsonl
+850765 ./runs/baseline/pred_baseline_triviaqa_earc_ministral-8b.jsonl
+831626 ./runs/baseline/pred_baseline_triviaqa_llmlingua2_llama3.2_3b.jsonl
+839752 ./runs/baseline/pred_baseline_triviaqa_llmlingua2_ministral-8b.jsonl
+846550 ./runs/baseline/pred_baseline_triviaqa_standard_rag_llama3.2_3b.jsonl
+861153 ./runs/baseline/pred_baseline_triviaqa_standard_rag_ministral-8b.jsonl
+835337 ./runs/baseline/pred_baseline_triviaqa_topk_llama3.2_3b.jsonl
+853887 ./runs/baseline/pred_baseline_triviaqa_topk_ministral-8b.jsonl
+470184 ./runs/exp1_ablation/pred_A1_hotpotqa_llama3.2_3b.jsonl
+477953 ./runs/exp1_ablation/pred_A1_hotpotqa_ministral-8b.jsonl
+472935 ./runs/exp1_ablation/pred_A1_nq_llama3.2_3b.jsonl
+492507 ./runs/exp1_ablation/pred_A1_nq_ministral-8b.jsonl
+459185 ./runs/exp1_ablation/pred_A1_triviaqa_llama3.2_3b.jsonl
+462327 ./runs/exp1_ablation/pred_A1_triviaqa_ministral-8b.jsonl
+474862 ./runs/exp1_ablation/pred_A2_hotpotqa_llama3.2_3b.jsonl
+481066 ./runs/exp1_ablation/pred_A2_hotpotqa_ministral-8b.jsonl
+478362 ./runs/exp1_ablation/pred_A2_nq_llama3.2_3b.jsonl
+498112 ./runs/exp1_ablation/pred_A2_nq_ministral-8b.jsonl
+462413 ./runs/exp1_ablation/pred_A2_triviaqa_llama3.2_3b.jsonl
+469856 ./runs/exp1_ablation/pred_A2_triviaqa_ministral-8b.jsonl
+472135 ./runs/exp1_ablation/pred_A3_hotpotqa_llama3.2_3b.jsonl
+478658 ./runs/exp1_ablation/pred_A3_hotpotqa_ministral-8b.jsonl
+474154 ./runs/exp1_ablation/pred_A3_nq_llama3.2_3b.jsonl
+496413 ./runs/exp1_ablation/pred_A3_nq_ministral-8b.jsonl
+461921 ./runs/exp1_ablation/pred_A3_triviaqa_llama3.2_3b.jsonl
+470946 ./runs/exp1_ablation/pred_A3_triviaqa_ministral-8b.jsonl
+470626 ./runs/exp1_ablation/pred_A4_hotpotqa_llama3.2_3b.jsonl
+478493 ./runs/exp1_ablation/pred_A4_hotpotqa_ministral-8b.jsonl
+470370 ./runs/exp1_ablation/pred_A4_nq_llama3.2_3b.jsonl
+492042 ./runs/exp1_ablation/pred_A4_nq_ministral-8b.jsonl
+459964 ./runs/exp1_ablation/pred_A4_triviaqa_llama3.2_3b.jsonl
+462765 ./runs/exp1_ablation/pred_A4_triviaqa_ministral-8b.jsonl
+472947 ./runs/exp1_ablation/pred_A5_hotpotqa_llama3.2_3b.jsonl
+480998 ./runs/exp1_ablation/pred_A5_hotpotqa_ministral-8b.jsonl
+479603 ./runs/exp1_ablation/pred_A5_nq_llama3.2_3b.jsonl
+494322 ./runs/exp1_ablation/pred_A5_nq_ministral-8b.jsonl
+465736 ./runs/exp1_ablation/pred_A5_triviaqa_llama3.2_3b.jsonl
+473733 ./runs/exp1_ablation/pred_A5_triviaqa_ministral-8b.jsonl
+471586 ./runs/exp1_ablation/pred_B1_hotpotqa_llama3.2_3b.jsonl
+479763 ./runs/exp1_ablation/pred_B1_hotpotqa_ministral-8b.jsonl
+470116 ./runs/exp1_ablation/pred_B1_nq_llama3.2_3b.jsonl
+497270 ./runs/exp1_ablation/pred_B1_nq_ministral-8b.jsonl
+461357 ./runs/exp1_ablation/pred_B1_triviaqa_llama3.2_3b.jsonl
+462559 ./runs/exp1_ablation/pred_B1_triviaqa_ministral-8b.jsonl
+473414 ./runs/exp1_ablation/pred_B2_hotpotqa_llama3.2_3b.jsonl
+479757 ./runs/exp1_ablation/pred_B2_hotpotqa_ministral-8b.jsonl
+471404 ./runs/exp1_ablation/pred_B2_nq_llama3.2_3b.jsonl
+494027 ./runs/exp1_ablation/pred_B2_nq_ministral-8b.jsonl
+460836 ./runs/exp1_ablation/pred_B2_triviaqa_llama3.2_3b.jsonl
+465927 ./runs/exp1_ablation/pred_B2_triviaqa_ministral-8b.jsonl
+473617 ./runs/exp1_ablation/pred_B3_hotpotqa_llama3.2_3b.jsonl
+479668 ./runs/exp1_ablation/pred_B3_hotpotqa_ministral-8b.jsonl
+475414 ./runs/exp1_ablation/pred_B3_nq_llama3.2_3b.jsonl
+495453 ./runs/exp1_ablation/pred_B3_nq_ministral-8b.jsonl
+460777 ./runs/exp1_ablation/pred_B3_triviaqa_llama3.2_3b.jsonl
+470197 ./runs/exp1_ablation/pred_B3_triviaqa_ministral-8b.jsonl
+432415 ./runs/exp2_budget/pred_earc_hotpotqa_b150_llama3.2_3b.jsonl
+440457 ./runs/exp2_budget/pred_earc_hotpotqa_b150_ministral-8b.jsonl
+426947 ./runs/exp2_budget/pred_earc_hotpotqa_b300_llama3.2_3b.jsonl
+434998 ./runs/exp2_budget/pred_earc_hotpotqa_b300_ministral-8b.jsonl
+432430 ./runs/exp2_budget/pred_earc_hotpotqa_b450_llama3.2_3b.jsonl
+440197 ./runs/exp2_budget/pred_earc_hotpotqa_b450_ministral-8b.jsonl
+430122 ./runs/exp2_budget/pred_earc_hotpotqa_b600_llama3.2_3b.jsonl
+442060 ./runs/exp2_budget/pred_earc_hotpotqa_b600_ministral-8b.jsonl
+433603 ./runs/exp2_budget/pred_earc_nq_b300_llama3.2_3b.jsonl
+448322 ./runs/exp2_budget/pred_earc_nq_b300_ministral-8b.jsonl
+419736 ./runs/exp2_budget/pred_earc_triviaqa_b300_llama3.2_3b.jsonl
+427733 ./runs/exp2_budget/pred_earc_triviaqa_b300_ministral-8b.jsonl
+426612 ./runs/exp2_budget/pred_topk_hotpotqa_k5_llama3.2_3b.jsonl
+440169 ./runs/exp2_budget/pred_topk_hotpotqa_k5_ministral-8b.jsonl
+419953 ./runs/exp2_budget/pred_topk_nq_k5_llama3.2_3b.jsonl
+458161 ./runs/exp2_budget/pred_topk_nq_k5_ministral-8b.jsonl
+413870 ./runs/exp2_budget/pred_topk_triviaqa_k5_llama3.2_3b.jsonl
+421494 ./runs/exp2_budget/pred_topk_triviaqa_k5_ministral-8b.jsonl
+867300 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_earc_llama3.2_3b.jsonl
+886130 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_earc_ministral-8b.jsonl
+869226 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_llmlingua2_llama3.2_3b.jsonl
+881486 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_llmlingua2_ministral-8b.jsonl
+888721 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_standard_rag_llama3.2_3b.jsonl
+908082 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_standard_rag_ministral-8b.jsonl
+876224 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_topk_llama3.2_3b.jsonl
+900482 ./task1_raw_files/runs/baseline/pred_baseline_hotpotqa_topk_ministral-8b.jsonl
+812040 ./task1_raw_files/runs/baseline/pred_baseline_nq_earc_llama3.2_3b.jsonl
+837526 ./task1_raw_files/runs/baseline/pred_baseline_nq_earc_ministral-8b.jsonl
+800570 ./task1_raw_files/runs/baseline/pred_baseline_nq_llmlingua2_llama3.2_3b.jsonl
+818930 ./task1_raw_files/runs/baseline/pred_baseline_nq_llmlingua2_ministral-8b.jsonl
+813894 ./task1_raw_files/runs/baseline/pred_baseline_nq_standard_rag_llama3.2_3b.jsonl
+867134 ./task1_raw_files/runs/baseline/pred_baseline_nq_standard_rag_ministral-8b.jsonl
+807642 ./task1_raw_files/runs/baseline/pred_baseline_nq_topk_llama3.2_3b.jsonl
+856411 ./task1_raw_files/runs/baseline/pred_baseline_nq_topk_ministral-8b.jsonl
+831879 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_earc_llama3.2_3b.jsonl
+850765 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_earc_ministral-8b.jsonl
+831626 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_llmlingua2_llama3.2_3b.jsonl
+839752 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_llmlingua2_ministral-8b.jsonl
+846550 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_standard_rag_llama3.2_3b.jsonl
+861153 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_standard_rag_ministral-8b.jsonl
+835337 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_topk_llama3.2_3b.jsonl
+853887 ./task1_raw_files/runs/baseline/pred_baseline_triviaqa_topk_ministral-8b.jsonl
+470184 ./task1_raw_files/runs/exp1_ablation/pred_A1_hotpotqa_llama3.2_3b.jsonl
+477953 ./task1_raw_files/runs/exp1_ablation/pred_A1_hotpotqa_ministral-8b.jsonl
+472935 ./task1_raw_files/runs/exp1_ablation/pred_A1_nq_llama3.2_3b.jsonl
+492507 ./task1_raw_files/runs/exp1_ablation/pred_A1_nq_ministral-8b.jsonl
+459185 ./task1_raw_files/runs/exp1_ablation/pred_A1_triviaqa_llama3.2_3b.jsonl
+462327 ./task1_raw_files/runs/exp1_ablation/pred_A1_triviaqa_ministral-8b.jsonl
+474862 ./task1_raw_files/runs/exp1_ablation/pred_A2_hotpotqa_llama3.2_3b.jsonl
+481066 ./task1_raw_files/runs/exp1_ablation/pred_A2_hotpotqa_ministral-8b.jsonl
+478362 ./task1_raw_files/runs/exp1_ablation/pred_A2_nq_llama3.2_3b.jsonl
+498112 ./task1_raw_files/runs/exp1_ablation/pred_A2_nq_ministral-8b.jsonl
+462413 ./task1_raw_files/runs/exp1_ablation/pred_A2_triviaqa_llama3.2_3b.jsonl
+469856 ./task1_raw_files/runs/exp1_ablation/pred_A2_triviaqa_ministral-8b.jsonl
+472135 ./task1_raw_files/runs/exp1_ablation/pred_A3_hotpotqa_llama3.2_3b.jsonl
+478658 ./task1_raw_files/runs/exp1_ablation/pred_A3_hotpotqa_ministral-8b.jsonl
+474154 ./task1_raw_files/runs/exp1_ablation/pred_A3_nq_llama3.2_3b.jsonl
+496413 ./task1_raw_files/runs/exp1_ablation/pred_A3_nq_ministral-8b.jsonl
+461921 ./task1_raw_files/runs/exp1_ablation/pred_A3_triviaqa_llama3.2_3b.jsonl
+470946 ./task1_raw_files/runs/exp1_ablation/pred_A3_triviaqa_ministral-8b.jsonl
+470626 ./task1_raw_files/runs/exp1_ablation/pred_A4_hotpotqa_llama3.2_3b.jsonl
+478493 ./task1_raw_files/runs/exp1_ablation/pred_A4_hotpotqa_ministral-8b.jsonl
+470370 ./task1_raw_files/runs/exp1_ablation/pred_A4_nq_llama3.2_3b.jsonl
+492042 ./task1_raw_files/runs/exp1_ablation/pred_A4_nq_ministral-8b.jsonl
+459964 ./task1_raw_files/runs/exp1_ablation/pred_A4_triviaqa_llama3.2_3b.jsonl
+462765 ./task1_raw_files/runs/exp1_ablation/pred_A4_triviaqa_ministral-8b.jsonl
+472947 ./task1_raw_files/runs/exp1_ablation/pred_A5_hotpotqa_llama3.2_3b.jsonl
+480998 ./task1_raw_files/runs/exp1_ablation/pred_A5_hotpotqa_ministral-8b.jsonl
+479603 ./task1_raw_files/runs/exp1_ablation/pred_A5_nq_llama3.2_3b.jsonl
+494322 ./task1_raw_files/runs/exp1_ablation/pred_A5_nq_ministral-8b.jsonl
+465736 ./task1_raw_files/runs/exp1_ablation/pred_A5_triviaqa_llama3.2_3b.jsonl
+473733 ./task1_raw_files/runs/exp1_ablation/pred_A5_triviaqa_ministral-8b.jsonl
+471586 ./task1_raw_files/runs/exp1_ablation/pred_B1_hotpotqa_llama3.2_3b.jsonl
+479763 ./task1_raw_files/runs/exp1_ablation/pred_B1_hotpotqa_ministral-8b.jsonl
+470116 ./task1_raw_files/runs/exp1_ablation/pred_B1_nq_llama3.2_3b.jsonl
+497270 ./task1_raw_files/runs/exp1_ablation/pred_B1_nq_ministral-8b.jsonl
+461357 ./task1_raw_files/runs/exp1_ablation/pred_B1_triviaqa_llama3.2_3b.jsonl
+462559 ./task1_raw_files/runs/exp1_ablation/pred_B1_triviaqa_ministral-8b.jsonl
+473414 ./task1_raw_files/runs/exp1_ablation/pred_B2_hotpotqa_llama3.2_3b.jsonl
+479757 ./task1_raw_files/runs/exp1_ablation/pred_B2_hotpotqa_ministral-8b.jsonl
+471404 ./task1_raw_files/runs/exp1_ablation/pred_B2_nq_llama3.2_3b.jsonl
+494027 ./task1_raw_files/runs/exp1_ablation/pred_B2_nq_ministral-8b.jsonl
+460836 ./task1_raw_files/runs/exp1_ablation/pred_B2_triviaqa_llama3.2_3b.jsonl
+465927 ./task1_raw_files/runs/exp1_ablation/pred_B2_triviaqa_ministral-8b.jsonl
+473617 ./task1_raw_files/runs/exp1_ablation/pred_B3_hotpotqa_llama3.2_3b.jsonl
+479668 ./task1_raw_files/runs/exp1_ablation/pred_B3_hotpotqa_ministral-8b.jsonl
+475414 ./task1_raw_files/runs/exp1_ablation/pred_B3_nq_llama3.2_3b.jsonl
+495453 ./task1_raw_files/runs/exp1_ablation/pred_B3_nq_ministral-8b.jsonl
+460777 ./task1_raw_files/runs/exp1_ablation/pred_B3_triviaqa_llama3.2_3b.jsonl
+470197 ./task1_raw_files/runs/exp1_ablation/pred_B3_triviaqa_ministral-8b.jsonl
+432415 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b150_llama3.2_3b.jsonl
+440457 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b150_ministral-8b.jsonl
+426947 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b300_llama3.2_3b.jsonl
+434998 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b300_ministral-8b.jsonl
+432430 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b450_llama3.2_3b.jsonl
+440197 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b450_ministral-8b.jsonl
+430122 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b600_llama3.2_3b.jsonl
+442060 ./task1_raw_files/runs/exp2_budget/pred_earc_hotpotqa_b600_ministral-8b.jsonl
+433603 ./task1_raw_files/runs/exp2_budget/pred_earc_nq_b300_llama3.2_3b.jsonl
+448322 ./task1_raw_files/runs/exp2_budget/pred_earc_nq_b300_ministral-8b.jsonl
+419736 ./task1_raw_files/runs/exp2_budget/pred_earc_triviaqa_b300_llama3.2_3b.jsonl
+427733 ./task1_raw_files/runs/exp2_budget/pred_earc_triviaqa_b300_ministral-8b.jsonl
+426612 ./task1_raw_files/runs/exp2_budget/pred_topk_hotpotqa_k5_llama3.2_3b.jsonl
+440169 ./task1_raw_files/runs/exp2_budget/pred_topk_hotpotqa_k5_ministral-8b.jsonl
+419953 ./task1_raw_files/runs/exp2_budget/pred_topk_nq_k5_llama3.2_3b.jsonl
+458161 ./task1_raw_files/runs/exp2_budget/pred_topk_nq_k5_ministral-8b.jsonl
+413870 ./task1_raw_files/runs/exp2_budget/pred_topk_triviaqa_k5_llama3.2_3b.jsonl
+421494 ./task1_raw_files/runs/exp2_budget/pred_topk_triviaqa_k5_ministral-8b.jsonl
+67924 ./.venv/Lib/site-packages/matplotlib/mpl-data/sample_data/Stocks.csv
+132 ./.venv/Lib/site-packages/matplotlib/mpl-data/sample_data/data_x_x2_x3.csv
+3211 ./.venv/Lib/site-packages/matplotlib/mpl-data/sample_data/msft.csv
+62794 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+62794 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+62768 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+61718 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+61734 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
+62768 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
+62275 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
+60497 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
+62298 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
+17903 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
+60053 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
+61728 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
+11963 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-log.csv
+70551 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-log10.csv
+61732 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-log1p.csv
+70546 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-log2.csv
+59981 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-sin.csv
+61722 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-sinh.csv
+61728 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-tan.csv
+61728 ./.venv/Lib/site-packages/numpy/_core/tests/data/umath-validation-set-tanh.csv
+16845 ./.venv/Lib/site-packages/numpy/random/tests/data/mt19937-testset-1.csv
+16826 ./.venv/Lib/site-packages/numpy/random/tests/data/mt19937-testset-2.csv
+24840 ./.venv/Lib/site-packages/numpy/random/tests/data/pcg64-testset-1.csv
+24846 ./.venv/Lib/site-packages/numpy/random/tests/data/pcg64-testset-2.csv
+24834 ./.venv/Lib/site-packages/numpy/random/tests/data/pcg64dxsm-testset-1.csv
+24840 ./.venv/Lib/site-packages/numpy/random/tests/data/pcg64dxsm-testset-2.csv
+24853 ./.venv/Lib/site-packages/numpy/random/tests/data/philox-testset-1.csv
+24839 ./.venv/Lib/site-packages/numpy/random/tests/data/philox-testset-2.csv
+24841 ./.venv/Lib/site-packages/numpy/random/tests/data/sfc64-testset-1.csv
+24834 ./.venv/Lib/site-packages/numpy/random/tests/data/sfc64-testset-2.csv
+13028 ./.venv/Lib/site-packages/scipy/signal/tests/data/GLB.Ts+dSST.csv
+120483 ./.venv/Lib/site-packages/sklearn/datasets/data/breast_cancer.csv
+2885 ./.venv/Lib/site-packages/sklearn/datasets/data/iris.csv
+233 ./.venv/Lib/site-packages/sklearn/datasets/data/linnerud_exercise.csv
+240 ./.venv/Lib/site-packages/sklearn/datasets/data/linnerud_physiological.csv
+11336 ./.venv/Lib/site-packages/sklearn/datasets/data/wine_data.csv
+67085 ./outputs/comprehensive_diagnostic_20260914_180923/predictions_all_configs.csv
+42839 ./outputs/comprehensive_diagnostic_20260914_180923/predictions_paired.csv
+6792 ./outputs/hybrid_v2_retrieval_20260914_202325/per_question_results.csv
+4788 ./outputs/hybrid_v3_retrieval_20260914_203330/per_question_results.csv
+6067 ./outputs/hybrid_v4_retrieval_20260914_205035/per_question_results.csv
+3954 ./recovered_outputs/outputs/ablations/ablation_results.csv
+467 ./recovered_outputs/outputs/experiments/evidence_preservation/evidence_preservation_summary.csv
+1317039 ./recovered_outputs/outputs/experiments/failure_analysis/failure_analysis_dataset.csv
+3057 ./recovered_outputs/outputs/experiments/statistical_validation/statistical_validation_summary.csv
+3454 ./recovered_outputs/outputs/experiments/tradeoff_analysis/tradeoff_summary.csv
+3338 ./recovered_outputs/outputs/final_evaluation/FINAL_COMPARISON.csv
+1441 ./recovered_outputs/outputs/journal_experiments/deliverables/attribution.csv
+270 ./recovered_outputs/outputs/journal_experiments/deliverables/hitk.csv
+8057 ./recovered_outputs/outputs/journal_experiments/deliverables/results.csv
+516 ./recovered_outputs/outputs/journal_experiments/deliverables/retention.csv
+4050 ./recovered_outputs/outputs/journal_experiments/exp1_ablation/exp1_summary.csv
+1772 ./recovered_outputs/outputs/journal_experiments/exp2_budget/exp2_summary.csv
+4491 ./recovered_outputs/outputs/sensitivity/alpha_beta/sensitivity_results.csv
+2191 ./recovered_outputs/outputs/sensitivity/token_budget/token_budget_results.csv
+776 ./recovered_outputs/outputs/test_ablations/ablation_results.csv
+1441 ./task1_raw_files/attribution.csv
+4050 ./task1_raw_files/exp1_summary.csv
+1772 ./task1_raw_files/exp2_summary.csv
+270 ./task1_raw_files/hitk.csv
+8057 ./task1_raw_files/results.csv
+516 ./task1_raw_files/retention.csv
+./.venv/Lib/site-packages/datasets/utils/resources/readme_structure.yaml
+./.venv/Lib/site-packages/markdown_it/port.yaml
+./.venv/Lib/site-packages/spacy/cli/templates/quickstart_training_recommendations.yml
+./.venv/Lib/site-packages/torch/_export/serde/schema.yaml
+./.venv/Lib/site-packages/torchgen/packaged/ATen/native/native_functions.yaml
+./.venv/Lib/site-packages/torchgen/packaged/ATen/native/tags.yaml
+./.venv/Lib/site-packages/torchgen/packaged/autograd/deprecated.yaml
+./.venv/Lib/site-packages/torchgen/packaged/autograd/derivatives.yaml
+./configs/default.yaml
+./configs/development.yaml
+./configs/experiments/ablations.yaml
+./configs/experiments/aggressive.yaml
+./configs/experiments/alpha_beta_sensitivity.yaml
+./configs/experiments/token_budget_sensitivity.yaml
+./configs/experiments/token_matched.yaml
+./configs/nq_smoke.yaml
+./configs/production.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A1.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A1_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A1_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A1_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A2.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A2_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A2_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A2_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A3.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A3_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A3_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A3_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A4.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A4_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A4_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A4_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A5.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A5_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A5_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_A5_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B1.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B1_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B1_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B1_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B2.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B2_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B2_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B2_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B3.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B3_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B3_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp1_ablation/configs/config_B3_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b150_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b150_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b150_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b300_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b300_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b300_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b450_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b450_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b450_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b600_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b600_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b600_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b750_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b750_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b750_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b900_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b900_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_b900_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_matched_598_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_matched_727_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_earc_matched_843_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_10_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_10_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_10_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_1_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_1_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_1_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_2_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_2_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_2_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_3_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_3_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_3_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_4_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_4_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_4_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_5_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_5_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_5_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_6_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_6_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_6_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_7_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_7_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_7_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_8_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_8_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_8_triviaqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_9_hotpotqa.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_9_nq.yaml
+./recovered_outputs/outputs/journal_experiments/exp2_budget/configs/config_topk_9_triviaqa.yaml
+./task1_raw_files/configs/config_A1.yaml
+./task1_raw_files/configs/config_A1_hotpotqa.yaml
+./task1_raw_files/configs/config_A1_nq.yaml
+./task1_raw_files/configs/config_A1_triviaqa.yaml
+./task1_raw_files/configs/config_A2.yaml
+./task1_raw_files/configs/config_A2_hotpotqa.yaml
+./task1_raw_files/configs/config_A2_nq.yaml
+./task1_raw_files/configs/config_A2_triviaqa.yaml
+./task1_raw_files/configs/config_A3.yaml
+./task1_raw_files/configs/config_A3_hotpotqa.yaml
+./task1_raw_files/configs/config_A3_nq.yaml
+./task1_raw_files/configs/config_A3_triviaqa.yaml
+./task1_raw_files/configs/config_A4.yaml
+./task1_raw_files/configs/config_A4_hotpotqa.yaml
+./task1_raw_files/configs/config_A4_nq.yaml
+./task1_raw_files/configs/config_A4_triviaqa.yaml
+./task1_raw_files/configs/config_A5.yaml
+./task1_raw_files/configs/config_A5_hotpotqa.yaml
+./task1_raw_files/configs/config_A5_nq.yaml
+./task1_raw_files/configs/config_A5_triviaqa.yaml
+./task1_raw_files/configs/config_B1.yaml
+./task1_raw_files/configs/config_B1_hotpotqa.yaml
+./task1_raw_files/configs/config_B1_nq.yaml
+./task1_raw_files/configs/config_B1_triviaqa.yaml
+./task1_raw_files/configs/config_B2.yaml
+./task1_raw_files/configs/config_B2_hotpotqa.yaml
+./task1_raw_files/configs/config_B2_nq.yaml
+./task1_raw_files/configs/config_B2_triviaqa.yaml
+./task1_raw_files/configs/config_B3.yaml
+./task1_raw_files/configs/config_B3_hotpotqa.yaml
+./task1_raw_files/configs/config_B3_nq.yaml
+./task1_raw_files/configs/config_B3_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b150_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b150_nq.yaml
+./task1_raw_files/configs/config_earc_b150_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b300_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b300_nq.yaml
+./task1_raw_files/configs/config_earc_b300_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b450_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b450_nq.yaml
+./task1_raw_files/configs/config_earc_b450_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b600_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b600_nq.yaml
+./task1_raw_files/configs/config_earc_b600_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b750_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b750_nq.yaml
+./task1_raw_files/configs/config_earc_b750_triviaqa.yaml
+./task1_raw_files/configs/config_earc_b900_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_b900_nq.yaml
+./task1_raw_files/configs/config_earc_b900_triviaqa.yaml
+./task1_raw_files/configs/config_earc_matched_598_hotpotqa.yaml
+./task1_raw_files/configs/config_earc_matched_727_nq.yaml
+./task1_raw_files/configs/config_earc_matched_843_triviaqa.yaml
+./task1_raw_files/configs/config_topk_10_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_10_nq.yaml
+./task1_raw_files/configs/config_topk_10_triviaqa.yaml
+./task1_raw_files/configs/config_topk_1_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_1_nq.yaml
+./task1_raw_files/configs/config_topk_1_triviaqa.yaml
+./task1_raw_files/configs/config_topk_2_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_2_nq.yaml
+./task1_raw_files/configs/config_topk_2_triviaqa.yaml
+./task1_raw_files/configs/config_topk_3_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_3_nq.yaml
+./task1_raw_files/configs/config_topk_3_triviaqa.yaml
+./task1_raw_files/configs/config_topk_4_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_4_nq.yaml
+./task1_raw_files/configs/config_topk_4_triviaqa.yaml
+./task1_raw_files/configs/config_topk_5_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_5_nq.yaml
+./task1_raw_files/configs/config_topk_5_triviaqa.yaml
+./task1_raw_files/configs/config_topk_6_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_6_nq.yaml
+./task1_raw_files/configs/config_topk_6_triviaqa.yaml
+./task1_raw_files/configs/config_topk_7_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_7_nq.yaml
+./task1_raw_files/configs/config_topk_7_triviaqa.yaml
+./task1_raw_files/configs/config_topk_8_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_8_nq.yaml
+./task1_raw_files/configs/config_topk_8_triviaqa.yaml
+./task1_raw_files/configs/config_topk_9_hotpotqa.yaml
+./task1_raw_files/configs/config_topk_9_nq.yaml
+./task1_raw_files/configs/config_topk_9_triviaqa.yaml
+./task1_raw_files/configs/default.yaml

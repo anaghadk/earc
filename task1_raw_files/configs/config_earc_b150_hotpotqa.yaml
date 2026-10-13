@@ -1,0 +1,22 @@
+compression:
+  alpha: 0.7
+  beta: 0.3
+  redundancy_threshold: 0.85
+  spacy_model: en_core_web_sm
+  token_budget: 150
+  use_redundancy: true
+data:
+  datasets:
+  - nq
+  - hotpotqa
+  - triviaqa
+  seed: 42
+experiment:
+  budget: 150
+  config_id: earc_b150
+  experiment: exp2
+  k: null
+retrieval:
+  backend: dense
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  top_k: 10

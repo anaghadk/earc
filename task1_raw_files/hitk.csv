@@ -1,0 +1,10 @@
+dataset,K,hit_rate,number_of_questions_evaluated,number_excluded
+nq,1,33.9,1000,0
+nq,5,51.3,1000,0
+nq,10,57.7,1000,0
+hotpotqa,1,35.01,957,43
+hotpotqa,5,54.13,957,43
+hotpotqa,10,60.82,957,43
+triviaqa,1,54.4,1000,0
+triviaqa,5,76.6,1000,0
+triviaqa,10,82.9,1000,0

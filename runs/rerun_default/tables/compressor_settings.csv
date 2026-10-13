@@ -1,0 +1,9 @@
+setting,llmlingua_2,longllmlingua,source_file_reference
+Base Model,microsoft/llmlingua-2-xlm-roberta-large-meetingbank,microsoft/phi-2 (2.7B),src/baselines/llmlingua2.py:18 / scripts/run_journal_exp3_longllmlingua.py:149
+Target Token Budget (T),300 tokens,255 tokens (+100 context budget),src/baselines/llmlingua2.py:27 / scripts/run_journal_exp3_longllmlingua.py:163
+Compression Granularity,Token-level classification,Sentence / passage-level condition perplexity,src/baselines/llmlingua2.py:38 / scripts/run_journal_exp3_longllmlingua.py:36
+Ranking / Conditioning,Token probability thresholding,"rank_method=longllmlingua, condition_in_question=after_condition",src/baselines/llmlingua2.py / scripts/run_journal_exp3_longllmlingua.py:164-165
+Reordering Strategy,Preserve original token order,reorder_context=sort,src/baselines/llmlingua2.py / scripts/run_journal_exp3_longllmlingua.py:166
+Dynamic Ratio / Rate,Dynamic budget-fitted rate (T / T_orig),dynamic_context_compression_ratio=0.3,src/baselines/llmlingua2.py:29 / scripts/run_journal_exp3_longllmlingua.py:167
+Tokenizer,XLM-RoBERTa Tokenizer,tiktoken (cl100k_base) budget count + Phi-2 tokenizer,src/baselines/llmlingua2.py:20 / scripts/run_journal_exp3_longllmlingua.py:127
+Execution Status in Archive,Complete (all 6 pairs executed on lab PC),Omitted from outputs.zip (0 predictions generated on lab PC),outputs.zip / task1_raw_files/runs/baseline/

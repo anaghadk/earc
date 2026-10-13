@@ -1,0 +1,432 @@
+{
+  "workflow": "EARC Complete Rerun Workflow and Consolidated Final Deliverables",
+  "consolidation_directory": "C:/earc/runs/rerun_default",
+  "timestamp": "2026-10-12T15:19:00+05:30",
+  "total_deliverables_count": 53,
+  "deliverables": [
+    {
+      "path": "predictions/earc_default_rerun__hotpotqa__llama3.2_3b.jsonl",
+      "size_bytes": 1984988,
+      "purpose": "Fresh generation run for HotpotQA with Llama 3.2 3B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__hotpotqa__ministral-8b.jsonl",
+      "size_bytes": 1989117,
+      "purpose": "Fresh generation run for HotpotQA with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__hotpotqa__ministral_8b.jsonl",
+      "size_bytes": 1989117,
+      "purpose": "Fresh generation run for HotpotQA with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__nq__llama3.2_3b.jsonl",
+      "size_bytes": 2044113,
+      "purpose": "Fresh generation run for NQ with Llama 3.2 3B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__nq__ministral-8b.jsonl",
+      "size_bytes": 2062321,
+      "purpose": "Fresh generation run for NQ with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__nq__ministral_8b.jsonl",
+      "size_bytes": 2062321,
+      "purpose": "Fresh generation run for NQ with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__triviaqa__llama3.2_3b.jsonl",
+      "size_bytes": 1997269,
+      "purpose": "Fresh generation run for TriviaQA with Llama 3.2 3B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__triviaqa__ministral-8b.jsonl",
+      "size_bytes": 2004546,
+      "purpose": "Fresh generation run for TriviaQA with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/earc_default_rerun__triviaqa__ministral_8b.jsonl",
+      "size_bytes": 2004546,
+      "purpose": "Fresh generation run for TriviaQA with Ministral 8B using EARC Default",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__hotpotqa__llama3.2_3b.jsonl",
+      "size_bytes": 3179321,
+      "purpose": "Fresh generation run for HotpotQA with Llama 3.2 3B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__hotpotqa__ministral-8b.jsonl",
+      "size_bytes": 3185517,
+      "purpose": "Fresh generation run for HotpotQA with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__hotpotqa__ministral_8b.jsonl",
+      "size_bytes": 3185517,
+      "purpose": "Fresh generation run for HotpotQA with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__nq__llama3.2_3b.jsonl",
+      "size_bytes": 3877642,
+      "purpose": "Fresh generation run for NQ with Llama 3.2 3B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__nq__ministral-8b.jsonl",
+      "size_bytes": 3913391,
+      "purpose": "Fresh generation run for NQ with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__nq__ministral_8b.jsonl",
+      "size_bytes": 3913391,
+      "purpose": "Fresh generation run for NQ with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__triviaqa__llama3.2_3b.jsonl",
+      "size_bytes": 4336703,
+      "purpose": "Fresh generation run for TriviaQA with Llama 3.2 3B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__triviaqa__ministral-8b.jsonl",
+      "size_bytes": 4339939,
+      "purpose": "Fresh generation run for TriviaQA with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "predictions/topk5_rerun__triviaqa__ministral_8b.jsonl",
+      "size_bytes": 4339939,
+      "purpose": "Fresh generation run for TriviaQA with Ministral 8B using Top-k (k=5)",
+      "provenance": "Fresh generation on Windows host via Task 3 protocol",
+      "status": "COMPLETE",
+      "validation": "1,000 valid records, 0 missing fields, EM <= F1 verified"
+    },
+    {
+      "path": "tables/comparisons.csv",
+      "size_bytes": 7821,
+      "purpose": "Statistical results table for comparisons.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/compressor_settings.csv",
+      "size_bytes": 1419,
+      "purpose": "Statistical results table for compressor_settings.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/exp1_summary_strict.csv",
+      "size_bytes": 4000,
+      "purpose": "Statistical results table for exp1_summary_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/exp2_summary_strict.csv",
+      "size_bytes": 1808,
+      "purpose": "Statistical results table for exp2_summary_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/exp3_summary_strict.csv",
+      "size_bytes": 129,
+      "purpose": "Statistical results table for exp3_summary_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/fresh_runs_summary_strict.csv",
+      "size_bytes": 1455,
+      "purpose": "Statistical results table for fresh_runs_summary_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/fresh_vs_stored_summary.csv",
+      "size_bytes": 1850,
+      "purpose": "Statistical results table for fresh_vs_stored_summary.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/paired_tests_strict.csv",
+      "size_bytes": 4154,
+      "purpose": "Statistical results table for paired_tests_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/rescore_summary.csv",
+      "size_bytes": 5945,
+      "purpose": "Statistical results table for rescore_summary.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/results_strict.csv",
+      "size_bytes": 8176,
+      "purpose": "Statistical results table for results_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "tables/retention_attribution_strict.csv",
+      "size_bytes": 9412,
+      "purpose": "Statistical results table for retention_attribution_strict.csv",
+      "provenance": "Strict rescoring and analysis pipeline",
+      "status": "COMPLETE",
+      "validation": "Parses cleanly with pandas and csv.DictReader"
+    },
+    {
+      "path": "figures/fig1_fresh_vs_stored_f1.pdf",
+      "size_bytes": 21035,
+      "purpose": "Publication figure (.PDF format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PDF format, non-zero file size"
+    },
+    {
+      "path": "figures/fig1_fresh_vs_stored_f1.png",
+      "size_bytes": 291707,
+      "purpose": "Publication figure (.PNG format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PNG format, non-zero file size"
+    },
+    {
+      "path": "figures/fig2_component_ablations.pdf",
+      "size_bytes": 20067,
+      "purpose": "Publication figure (.PDF format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PDF format, non-zero file size"
+    },
+    {
+      "path": "figures/fig2_component_ablations.png",
+      "size_bytes": 159286,
+      "purpose": "Publication figure (.PNG format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PNG format, non-zero file size"
+    },
+    {
+      "path": "figures/fig3_token_budget_curve.pdf",
+      "size_bytes": 19823,
+      "purpose": "Publication figure (.PDF format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PDF format, non-zero file size"
+    },
+    {
+      "path": "figures/fig3_token_budget_curve.png",
+      "size_bytes": 184390,
+      "purpose": "Publication figure (.PNG format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PNG format, non-zero file size"
+    },
+    {
+      "path": "figures/fig4_error_attribution.pdf",
+      "size_bytes": 18629,
+      "purpose": "Publication figure (.PDF format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PDF format, non-zero file size"
+    },
+    {
+      "path": "figures/fig4_error_attribution.png",
+      "size_bytes": 187318,
+      "purpose": "Publication figure (.PNG format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PNG format, non-zero file size"
+    },
+    {
+      "path": "figures/fig5_context_identity.pdf",
+      "size_bytes": 23462,
+      "purpose": "Publication figure (.PDF format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PDF format, non-zero file size"
+    },
+    {
+      "path": "figures/fig5_context_identity.png",
+      "size_bytes": 147677,
+      "purpose": "Publication figure (.PNG format)",
+      "provenance": "Generated via scripts/generate_figures.py",
+      "status": "COMPLETE",
+      "validation": "Valid .PNG format, non-zero file size"
+    },
+    {
+      "path": "logs/compare_rerun_log.txt",
+      "size_bytes": 5170,
+      "purpose": "Execution/analysis log for compare_rerun_log.txt",
+      "provenance": "Generated during task execution",
+      "status": "COMPLETE",
+      "validation": "Log verified and contains complete execution trace"
+    },
+    {
+      "path": "logs/paired_tests_log.txt",
+      "size_bytes": 4866,
+      "purpose": "Execution/analysis log for paired_tests_log.txt",
+      "provenance": "Generated during task execution",
+      "status": "COMPLETE",
+      "validation": "Log verified and contains complete execution trace"
+    },
+    {
+      "path": "logs/rescore_log.txt",
+      "size_bytes": 10010,
+      "purpose": "Execution/analysis log for rescore_log.txt",
+      "provenance": "Generated during task execution",
+      "status": "COMPLETE",
+      "validation": "Log verified and contains complete execution trace"
+    },
+    {
+      "path": "logs/task3_llama_rerun.log",
+      "size_bytes": 2554023,
+      "purpose": "Execution/analysis log for task3_llama_rerun.log",
+      "provenance": "Generated during task execution",
+      "status": "COMPLETE",
+      "validation": "Log verified and contains complete execution trace"
+    },
+    {
+      "path": "logs/task3_ministral_rerun.log",
+      "size_bytes": 2629825,
+      "purpose": "Execution/analysis log for task3_ministral_rerun.log",
+      "provenance": "Generated during task execution",
+      "status": "COMPLETE",
+      "validation": "Log verified and contains complete execution trace"
+    },
+    {
+      "path": "reports/hotpotqa_discrepancy_investigation.md",
+      "size_bytes": 6064,
+      "purpose": "Technical markdown report: hotpotqa_discrepancy_investigation.md",
+      "provenance": "Authored per correction guide requirements",
+      "status": "COMPLETE",
+      "validation": "Complete markdown with code citations and forensic evidence"
+    },
+    {
+      "path": "reports/implementation_questions_answered.md",
+      "size_bytes": 6828,
+      "purpose": "Technical markdown report: implementation_questions_answered.md",
+      "provenance": "Authored per correction guide requirements",
+      "status": "COMPLETE",
+      "validation": "Complete markdown with code citations and forensic evidence"
+    },
+    {
+      "path": "reports/methodology_and_recovery.md",
+      "size_bytes": 5805,
+      "purpose": "Technical markdown report: methodology_and_recovery.md",
+      "provenance": "Authored per correction guide requirements",
+      "status": "COMPLETE",
+      "validation": "Complete markdown with code citations and forensic evidence"
+    },
+    {
+      "path": "reports/missing_slots_audit.md",
+      "size_bytes": 5174,
+      "purpose": "Technical markdown report: missing_slots_audit.md",
+      "provenance": "Authored per correction guide requirements",
+      "status": "COMPLETE",
+      "validation": "Complete markdown with code citations and forensic evidence"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 6548,
+      "purpose": "Consolidated deliverable / metadata file: README.md",
+      "provenance": "Generated during rerun consolidation workflow",
+      "status": "COMPLETE",
+      "validation": "Verified readable and non-empty"
+    },
+    {
+      "path": "CHECKLIST.md",
+      "size_bytes": 6913,
+      "purpose": "Consolidated deliverable / metadata file: CHECKLIST.md",
+      "provenance": "Generated during rerun consolidation workflow",
+      "status": "COMPLETE",
+      "validation": "Verified readable and non-empty"
+    },
+    {
+      "path": "commit.txt",
+      "size_bytes": 1181,
+      "purpose": "Consolidated deliverable / metadata file: commit.txt",
+      "provenance": "Generated during rerun consolidation workflow",
+      "status": "COMPLETE",
+      "validation": "Verified readable and non-empty"
+    },
+    {
+      "path": "compare_rerun.txt",
+      "size_bytes": 5170,
+      "purpose": "Consolidated deliverable / metadata file: compare_rerun.txt",
+      "provenance": "Generated during rerun consolidation workflow",
+      "status": "COMPLETE",
+      "validation": "Verified readable and non-empty"
+    },
+    {
+      "path": "requirements_frozen.txt",
+      "size_bytes": 5142,
+      "purpose": "Consolidated deliverable / metadata file: requirements_frozen.txt",
+      "provenance": "Generated during rerun consolidation workflow",
+      "status": "COMPLETE",
+      "validation": "Verified readable and non-empty"
+    }
+  ]
+}

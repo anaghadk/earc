@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-10-05T11:53:42Z",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "retrieval_method": "dense",
+  "top_k": 10,
+  "dataset_counts": {
+    "nq": 1000,
+    "hotpotqa": 1000,
+    "triviaqa": 1000
+  },
+  "total_examples": 6
+}

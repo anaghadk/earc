@@ -1,0 +1,25 @@
+dataset,generator,method,percentage_correct,percentage_retrieval_miss,percentage_compression_loss,percentage_generation_error
+nq,ministral-8b,Standard RAG,26.9,42.3,0.0,30.8
+nq,ministral-8b,Top-k passages,25.2,42.3,6.4,26.1
+nq,ministral-8b,LLMLingua-2,21.0,42.3,19.5,17.2
+nq,ministral-8b,EARC (default),23.3,42.3,14.8,19.6
+hotpotqa,ministral-8b,Standard RAG,38.56,39.18,0.0,22.26
+hotpotqa,ministral-8b,Top-k passages,36.15,39.18,6.69,17.98
+hotpotqa,ministral-8b,LLMLingua-2,27.9,39.18,16.8,16.12
+hotpotqa,ministral-8b,EARC (default),36.89,39.18,11.2,12.73
+triviaqa,ministral-8b,Standard RAG,56.1,17.1,0.0,26.8
+triviaqa,ministral-8b,Top-k passages,54.1,17.1,6.3,22.5
+triviaqa,ministral-8b,LLMLingua-2,49.8,17.1,18.2,14.9
+triviaqa,ministral-8b,EARC (default),52.3,17.1,14.2,16.4
+nq,llama3.2:3b,Standard RAG,24.4,42.3,0.0,33.3
+nq,llama3.2:3b,Top-k passages,23.7,42.3,6.4,27.6
+nq,llama3.2:3b,LLMLingua-2,18.4,42.3,19.5,19.8
+nq,llama3.2:3b,EARC (default),21.3,42.3,14.8,21.6
+hotpotqa,llama3.2:3b,Standard RAG,22.88,39.18,0.0,37.94
+hotpotqa,llama3.2:3b,Top-k passages,23.41,39.18,6.69,30.72
+hotpotqa,llama3.2:3b,LLMLingua-2,21.42,39.18,16.8,22.6
+hotpotqa,llama3.2:3b,EARC (default),27.38,39.18,11.2,22.24
+triviaqa,llama3.2:3b,Standard RAG,40.3,17.1,0.0,42.6
+triviaqa,llama3.2:3b,Top-k passages,40.4,17.1,6.3,36.2
+triviaqa,llama3.2:3b,LLMLingua-2,37.8,17.1,18.2,26.9
+triviaqa,llama3.2:3b,EARC (default),44.6,17.1,14.2,24.1

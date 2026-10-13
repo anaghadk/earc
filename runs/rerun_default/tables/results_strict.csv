@@ -1,0 +1,91 @@
+experiment,config_id,dataset,generator,method,alpha,beta,theta,budget,k,avg_tokens,em,f1,compress_time_s,gen_time_s,n_questions
+baseline,standard_rag,nq,llama3.2:3b,Standard RAG,,,,,10.0,1497.2,0.0,21.62,0.0,2.4461,1000
+baseline,topk_5,nq,llama3.2:3b,Top-k passages,,,,,5.0,726.6,23.7,31.96,0.0,2.2309,1000
+baseline,llmlingua2,nq,llama3.2:3b,LLMLingua-2,,,,300.0,,302.4,0.0,16.79,0.2708,2.3069,1000
+baseline,earc_default,nq,llama3.2:3b,EARC (default),0.7,0.3,0.85,300.0,,295.4,21.3,29.16,0.4315,2.2887,1000
+baseline,standard_rag,hotpotqa,llama3.2:3b,Standard RAG,,,,,10.0,1284.4,0.0,19.3,0.0,2.3709,1000
+baseline,topk_5,hotpotqa,llama3.2:3b,Top-k passages,,,,,5.0,598.1,24.1,30.69,0.0,2.199,1000
+baseline,llmlingua2,hotpotqa,llama3.2:3b,LLMLingua-2,,,,300.0,,296.2,0.0,18.41,0.1884,2.2503,1000
+baseline,earc_default,hotpotqa,llama3.2:3b,EARC (default),0.7,0.3,0.85,300.0,,294.4,28.4,34.68,0.3775,2.2318,1000
+baseline,standard_rag,triviaqa,llama3.2:3b,Standard RAG,,,,,10.0,1695.5,0.0,29.45,0.0,2.3493,1000
+baseline,topk_5,triviaqa,llama3.2:3b,Top-k passages,,,,,5.0,842.8,40.4,48.56,0.0,2.1619,1000
+baseline,llmlingua2,triviaqa,llama3.2:3b,LLMLingua-2,,,,300.0,,304.4,0.0,27.37,0.173,2.1948,1000
+baseline,earc_default,triviaqa,llama3.2:3b,EARC (default),0.7,0.3,0.85,300.0,,295.2,44.6,52.52,0.4895,2.1767,1000
+baseline,standard_rag,nq,ministral-8b,Standard RAG,,,,,10.0,1497.2,0.0,25.82,0.0,0.8509,1000
+baseline,topk_5,nq,ministral-8b,Top-k passages,,,,,5.0,726.6,25.2,36.36,0.0,0.7826,1000
+baseline,llmlingua2,nq,ministral-8b,LLMLingua-2,,,,300.0,,302.4,0.0,20.51,0.2708,0.6764,1000
+baseline,earc_default,nq,ministral-8b,EARC (default),0.7,0.3,0.85,300.0,,295.4,23.3,33.84,0.4315,0.7233,1000
+baseline,standard_rag,hotpotqa,ministral-8b,Standard RAG,,,,,10.0,1284.4,0.0,30.56,0.0,0.7862,1000
+baseline,topk_5,hotpotqa,ministral-8b,Top-k passages,,,,,5.0,598.1,35.8,44.53,0.0,0.7461,1000
+baseline,llmlingua2,hotpotqa,ministral-8b,LLMLingua-2,,,,300.0,,296.2,0.0,24.75,0.1884,0.715,1000
+baseline,earc_default,hotpotqa,ministral-8b,EARC (default),0.7,0.3,0.85,300.0,,294.4,36.7,44.94,0.3775,0.7697,1000
+baseline,standard_rag,triviaqa,ministral-8b,Standard RAG,,,,,10.0,1695.5,0.0,40.13,0.0,0.7091,1000
+baseline,topk_5,triviaqa,ministral-8b,Top-k passages,,,,,5.0,842.8,54.1,64.42,0.0,0.6835,1000
+baseline,llmlingua2,triviaqa,ministral-8b,LLMLingua-2,,,,300.0,,304.4,0.0,35.49,0.173,0.6739,1000
+baseline,earc_default,triviaqa,ministral-8b,EARC (default),0.7,0.3,0.85,300.0,,295.2,52.3,62.47,0.4895,0.6913,1000
+exp1,A1,hotpotqa,llama3.2:3b,A1,1.0,0.0,,300.0,,294.1,0.0,21.14,0.39,2.419,1000
+exp1,A1,hotpotqa,ministral-8b,A1,1.0,0.0,,300.0,,294.1,0.0,27.65,0.39,0.939,1000
+exp1,A1,nq,llama3.2:3b,A1,1.0,0.0,,300.0,,295.1,0.0,20.28,0.449,2.374,1000
+exp1,A1,nq,ministral-8b,A1,1.0,0.0,,300.0,,295.1,0.0,22.31,0.449,0.875,1000
+exp1,A1,triviaqa,llama3.2:3b,A1,1.0,0.0,,300.0,,294.8,0.0,32.12,0.478,2.372,1000
+exp1,A1,triviaqa,ministral-8b,A1,1.0,0.0,,300.0,,294.8,0.0,38.12,0.478,0.764,1000
+exp1,A2,hotpotqa,llama3.2:3b,A2,0.0,1.0,,300.0,,294.8,0.0,20.38,0.378,2.372,1000
+exp1,A2,hotpotqa,ministral-8b,A2,0.0,1.0,,300.0,,294.8,0.0,26.1,0.378,0.84,1000
+exp1,A2,nq,llama3.2:3b,A2,0.0,1.0,,300.0,,295.8,0.0,16.86,0.428,2.382,1000
+exp1,A2,nq,ministral-8b,A2,0.0,1.0,,300.0,,295.8,0.0,20.19,0.428,0.934,1000
+exp1,A2,triviaqa,llama3.2:3b,A2,0.0,1.0,,300.0,,295.4,0.0,29.39,0.478,2.38,1000
+exp1,A2,triviaqa,ministral-8b,A2,0.0,1.0,,300.0,,295.4,0.0,35.2,0.478,0.807,1000
+exp1,A3,hotpotqa,llama3.2:3b,A3,0.7,0.3,,300.0,,294.6,0.0,19.66,0.378,2.376,1000
+exp1,A3,hotpotqa,ministral-8b,A3,0.7,0.3,,300.0,,294.6,0.0,26.93,0.378,0.874,1000
+exp1,A3,nq,llama3.2:3b,A3,0.7,0.3,,300.0,,295.5,0.0,18.87,0.428,2.388,1000
+exp1,A3,nq,ministral-8b,A3,0.7,0.3,,300.0,,295.5,0.0,22.2,0.428,0.912,1000
+exp1,A3,triviaqa,llama3.2:3b,A3,0.7,0.3,,300.0,,295.3,0.0,31.77,0.478,2.386,1000
+exp1,A3,triviaqa,ministral-8b,A3,0.7,0.3,,300.0,,295.3,0.0,37.54,0.478,0.779,1000
+exp1,A4,hotpotqa,llama3.2:3b,A4,1.0,0.0,0.85,300.0,,293.7,0.0,21.23,0.378,2.392,1000
+exp1,A4,hotpotqa,ministral-8b,A4,1.0,0.0,0.85,300.0,,293.7,0.0,27.61,0.378,0.775,1000
+exp1,A4,nq,llama3.2:3b,A4,1.0,0.0,0.85,300.0,,295.1,0.0,19.7,0.428,2.391,1000
+exp1,A4,nq,ministral-8b,A4,1.0,0.0,0.85,300.0,,295.1,0.0,22.26,0.428,0.859,1000
+exp1,A4,triviaqa,llama3.2:3b,A4,1.0,0.0,0.85,300.0,,294.8,0.0,31.84,0.478,2.389,1000
+exp1,A4,triviaqa,ministral-8b,A4,1.0,0.0,0.85,300.0,,294.8,0.0,38.38,0.478,0.876,1000
+exp1,A5,hotpotqa,llama3.2:3b,A5,0.7,0.3,0.85,300.0,,294.4,0.0,22.63,0.377,2.232,1000
+exp1,A5,hotpotqa,ministral-8b,A5,0.7,0.3,0.85,300.0,,294.4,0.0,29.34,0.377,0.77,1000
+exp1,A5,nq,llama3.2:3b,A5,0.7,0.3,0.85,300.0,,295.4,0.0,19.05,0.432,2.289,1000
+exp1,A5,nq,ministral-8b,A5,0.7,0.3,0.85,300.0,,295.4,0.0,22.4,0.432,0.723,1000
+exp1,A5,triviaqa,llama3.2:3b,A5,0.7,0.3,0.85,300.0,,295.2,0.0,31.58,0.489,2.177,1000
+exp1,A5,triviaqa,ministral-8b,A5,0.7,0.3,0.85,300.0,,295.2,0.0,37.64,0.489,0.691,1000
+exp1,B1,hotpotqa,llama3.2:3b,B1,0.9,0.1,0.85,300.0,,294.0,0.0,21.27,0.378,2.395,1000
+exp1,B1,hotpotqa,ministral-8b,B1,0.9,0.1,0.85,300.0,,294.0,0.0,27.36,0.378,0.826,1000
+exp1,B1,nq,llama3.2:3b,B1,0.9,0.1,0.85,300.0,,295.3,0.0,19.38,0.428,2.39,1000
+exp1,B1,nq,ministral-8b,B1,0.9,0.1,0.85,300.0,,295.3,0.0,21.93,0.428,0.81,1000
+exp1,B1,triviaqa,llama3.2:3b,B1,0.9,0.1,0.85,300.0,,294.8,0.0,31.58,0.478,2.386,1000
+exp1,B1,triviaqa,ministral-8b,B1,0.9,0.1,0.85,300.0,,294.8,0.0,38.26,0.478,0.787,1000
+exp1,B2,hotpotqa,llama3.2:3b,B2,0.8,0.2,0.85,300.0,,294.3,0.0,21.01,0.378,2.392,1000
+exp1,B2,hotpotqa,ministral-8b,B2,0.8,0.2,0.85,300.0,,294.3,0.0,27.51,0.378,0.81,1000
+exp1,B2,nq,llama3.2:3b,B2,0.8,0.2,0.85,300.0,,295.4,0.0,19.21,0.428,2.391,1000
+exp1,B2,nq,ministral-8b,B2,0.8,0.2,0.85,300.0,,295.4,0.0,21.82,0.428,0.919,1000
+exp1,B2,triviaqa,llama3.2:3b,B2,0.8,0.2,0.85,300.0,,295.0,0.0,32.2,0.478,2.391,1000
+exp1,B2,triviaqa,ministral-8b,B2,0.8,0.2,0.85,300.0,,295.0,0.0,38.11,0.478,0.9,1000
+exp1,B3,hotpotqa,llama3.2:3b,B3,0.5,0.5,0.85,300.0,,294.4,0.0,19.69,0.378,2.392,1000
+exp1,B3,hotpotqa,ministral-8b,B3,0.5,0.5,0.85,300.0,,294.4,0.0,26.36,0.378,0.897,1000
+exp1,B3,nq,llama3.2:3b,B3,0.5,0.5,0.85,300.0,,295.5,0.0,18.43,0.428,2.391,1000
+exp1,B3,nq,ministral-8b,B3,0.5,0.5,0.85,300.0,,295.5,0.0,21.39,0.428,0.855,1000
+exp1,B3,triviaqa,llama3.2:3b,B3,0.5,0.5,0.85,300.0,,295.3,0.0,30.56,0.478,2.39,1000
+exp1,B3,triviaqa,ministral-8b,B3,0.5,0.5,0.85,300.0,,295.3,0.0,36.61,0.478,0.787,1000
+exp2,earc_b150,hotpotqa,llama3.2:3b,earc_b150,0.7,0.3,0.85,150.0,,145.7,0.0,20.15,0.378,2.378,1000
+exp2,earc_b150,hotpotqa,ministral-8b,earc_b150,0.7,0.3,0.85,150.0,,145.7,0.0,25.37,0.378,0.791,1000
+exp2,earc_b300,hotpotqa,llama3.2:3b,earc_b300,0.7,0.3,0.85,300.0,,294.4,0.0,22.63,0.377,2.232,1000
+exp2,earc_b300,hotpotqa,ministral-8b,earc_b300,0.7,0.3,0.85,300.0,,294.4,0.0,29.34,0.377,0.77,1000
+exp2,earc_b450,hotpotqa,llama3.2:3b,earc_b450,0.7,0.3,0.85,450.0,,441.5,0.0,21.07,0.378,2.403,1000
+exp2,earc_b450,hotpotqa,ministral-8b,earc_b450,0.7,0.3,0.85,450.0,,441.5,0.0,28.91,0.378,0.818,1000
+exp2,earc_b600,hotpotqa,llama3.2:3b,earc_b600,0.7,0.3,0.85,600.0,,584.9,0.0,20.93,0.378,2.4,1000
+exp2,earc_b600,hotpotqa,ministral-8b,earc_b600,0.7,0.3,0.85,600.0,,584.9,0.0,30.07,0.378,0.746,1000
+exp2,earc_b300,nq,llama3.2:3b,earc_b300,0.7,0.3,0.85,300.0,,295.4,0.0,19.05,0.432,2.289,1000
+exp2,earc_b300,nq,ministral-8b,earc_b300,0.7,0.3,0.85,300.0,,295.4,0.0,22.4,0.432,0.723,1000
+exp2,earc_b300,triviaqa,llama3.2:3b,earc_b300,0.7,0.3,0.85,300.0,,295.2,0.0,31.58,0.489,2.177,1000
+exp2,earc_b300,triviaqa,ministral-8b,earc_b300,0.7,0.3,0.85,300.0,,295.2,0.0,37.64,0.489,0.691,1000
+exp2,topk_5,hotpotqa,llama3.2:3b,topk_5,,,,,5.0,598.1,0.0,20.12,0.0,2.199,1000
+exp2,topk_5,hotpotqa,ministral-8b,topk_5,,,,,5.0,598.1,0.0,29.35,0.0,0.746,1000
+exp2,topk_5,nq,llama3.2:3b,topk_5,,,,,5.0,726.6,0.0,21.06,0.0,2.231,1000
+exp2,topk_5,nq,ministral-8b,topk_5,,,,,5.0,726.6,0.0,24.26,0.0,0.783,1000
+exp2,topk_5,triviaqa,llama3.2:3b,topk_5,,,,,5.0,842.8,0.0,29.49,0.0,2.162,1000
+exp2,topk_5,triviaqa,ministral-8b,topk_5,,,,,5.0,842.8,0.0,38.72,0.0,0.684,1000

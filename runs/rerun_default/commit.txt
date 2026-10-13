@@ -1,0 +1,26 @@
+Git Commit: 607566f1a2739f9fce6c2cbf4bff34b5a409269c
+
+Git Diff Stat:
+scripts/run_alpha_beta_sensitivity.py           |  3 ++-
+ scripts/run_component_ablation.py               |  3 ++-
+ scripts/run_comprehensive_diagnostic.py         |  3 ++-
+ scripts/run_evidence_preservation_experiment.py |  3 ++-
+ scripts/run_final_evaluation.py                 |  3 ++-
+ scripts/run_journal_exp1_ablation.py            |  3 ++-
+ scripts/run_journal_exp2_budget.py              |  3 ++-
+ scripts/run_journal_exp3_longllmlingua.py       |  3 ++-
+ scripts/run_production_smoke.py                 |  3 ++-
+ scripts/run_systematic_failure_analysis.py      |  3 ++-
+ scripts/run_token_budget_sensitivity.py         |  3 ++-
+ src/config/settings.py                          | 10 ++++++++++
+ src/ui/app.py                                   |  3 ++-
+ temp_baseline_compare.py                        |  2 --
+ 14 files changed, 34 insertions(+), 14 deletions(-)
+
+Environment Information:
+Python: 3.13.14
+OS: win32 (Windows)
+Torch: 2.6.0+cu124 (CUDA available: True)
+Transformers: 5.17.0
+MistralAI SDK: 2.10.0
+LLM Models: llama3.2 (Ollama local), ministral-8b-latest (Mistral API)

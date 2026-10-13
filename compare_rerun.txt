@@ -1,0 +1,119 @@
+== runs/rerun_default/earc_default_rerun__hotpotqa__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  99.70% of questions
+identical prediction     :  64.00% of questions
+identical context_tokens :  23.00% of questions
+mean em         stored  28.40 fresh  24.80
+mean f1         stored  34.68 fresh  30.31
+mean em_strict  stored   0.00 fresh  24.80
+mean f1_strict  stored  22.63 fresh  30.31
+
+== runs/rerun_default/earc_default_rerun__nq__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  98.70% of questions
+identical prediction     :  90.20% of questions
+identical context_tokens :  99.60% of questions
+mean em         stored  21.30 fresh  21.80
+mean f1         stored  29.16 fresh  29.73
+mean em_strict  stored   0.00 fresh  21.80
+mean f1_strict  stored  19.05 fresh  29.73
+
+== runs/rerun_default/earc_default_rerun__triviaqa__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  98.20% of questions
+identical prediction     :  91.90% of questions
+identical context_tokens :  99.60% of questions
+mean em         stored  44.60 fresh  45.00
+mean f1         stored  52.52 fresh  52.77
+mean em_strict  stored   0.00 fresh  45.00
+mean f1_strict  stored  31.58 fresh  52.77
+
+== runs/rerun_default/topk5_rerun__hotpotqa__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  60.30% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  24.10 fresh  25.20
+mean f1         stored  30.69 fresh  31.32
+mean em_strict  stored   0.00 fresh  25.20
+mean f1_strict  stored  20.12 fresh  31.32
+
+== runs/rerun_default/topk5_rerun__nq__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  64.80% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  23.70 fresh  23.80
+mean f1         stored  31.96 fresh  31.53
+mean em_strict  stored   0.00 fresh  23.80
+mean f1_strict  stored  21.06 fresh  31.53
+
+== runs/rerun_default/topk5_rerun__triviaqa__llama3.2_3b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  64.00% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  40.40 fresh  39.00
+mean f1         stored  48.56 fresh  46.54
+mean em_strict  stored   0.00 fresh  39.00
+mean f1_strict  stored  29.49 fresh  46.54
+
+== runs/rerun_default/earc_default_rerun__hotpotqa__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  99.70% of questions
+identical prediction     :  67.10% of questions
+identical context_tokens :  23.00% of questions
+mean em         stored  36.70 fresh  34.20
+mean f1         stored  44.94 fresh  41.62
+mean em_strict  stored   0.00 fresh  34.20
+mean f1_strict  stored  29.34 fresh  41.62
+
+== runs/rerun_default/earc_default_rerun__nq__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  98.70% of questions
+identical prediction     :  87.10% of questions
+identical context_tokens :  99.60% of questions
+mean em         stored  23.30 fresh  23.40
+mean f1         stored  33.84 fresh  33.86
+mean em_strict  stored   0.00 fresh  23.40
+mean f1_strict  stored  22.40 fresh  33.86
+
+== runs/rerun_default/earc_default_rerun__triviaqa__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        :  98.20% of questions
+identical prediction     :  93.30% of questions
+identical context_tokens :  99.60% of questions
+mean em         stored  52.30 fresh  53.10
+mean f1         stored  62.47 fresh  63.09
+mean em_strict  stored   0.00 fresh  53.10
+mean f1_strict  stored  37.64 fresh  63.09
+
+== runs/rerun_default/topk5_rerun__hotpotqa__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  67.20% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  35.80 fresh  36.60
+mean f1         stored  44.53 fresh  45.19
+mean em_strict  stored   0.00 fresh  36.60
+mean f1_strict  stored  29.35 fresh  45.19
+
+== runs/rerun_default/topk5_rerun__nq__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  62.50% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  25.20 fresh  25.60
+mean f1         stored  36.36 fresh  36.92
+mean em_strict  stored   0.00 fresh  25.60
+mean f1_strict  stored  24.26 fresh  36.92
+
+== runs/rerun_default/topk5_rerun__triviaqa__ministral_8b.jsonl
+stored 1000 fresh 1000 common ids 1000
+identical context        : 100.00% of questions
+identical prediction     :  73.30% of questions
+identical context_tokens :   0.00% of questions
+mean em         stored  54.10 fresh  54.80
+mean f1         stored  64.42 fresh  64.74
+mean em_strict  stored   0.00 fresh  54.80
+mean f1_strict  stored  38.72 fresh  64.74

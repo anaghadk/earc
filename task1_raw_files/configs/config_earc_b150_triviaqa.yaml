@@ -1,0 +1,21 @@
+data:
+  seed: 42
+  datasets:
+  - nq
+  - hotpotqa
+  - triviaqa
+retrieval:
+  backend: dense
+  top_k: 10
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+compression:
+  alpha: 0.7
+  beta: 0.3
+  use_redundancy: true
+  redundancy_threshold: 0.85
+  token_budget: 150
+  spacy_model: en_core_web_sm
+experiment:
+  experiment: exp2
+  mode: earc
+  budget: 150

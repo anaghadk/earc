@@ -1,0 +1,21 @@
+compression:
+  alpha: 0.7
+  beta: 0.3
+  redundancy_threshold: 1.0
+  spacy_model: en_core_web_sm
+  token_budget: 300
+  use_redundancy: false
+data:
+  datasets:
+  - nq
+  - hotpotqa
+  - triviaqa
+  seed: 42
+experiment:
+  config_id: A3
+  config_name: Similarity + evidence
+  experiment: exp1
+retrieval:
+  backend: dense
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  top_k: 10

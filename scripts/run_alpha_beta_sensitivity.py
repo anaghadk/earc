@@ -34,8 +34,9 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
+# Ensure MISTRAL_API_KEY is read from environment
 if not os.environ.get("MISTRAL_API_KEY"):
-    os.environ["MISTRAL_API_KEY"] = "lIK71q2MhMrZXQwxYE0nVUvoNNUVjQzy"
+    pass
 
 import torch
 import numpy as np

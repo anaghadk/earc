@@ -1,0 +1,13 @@
+dataset,method,config_id,percentage_of_questions_with_the_answer_in_the_final_context
+nq,Standard RAG,standard_rag,57.7
+nq,Top-k passages,topk,51.3
+nq,LLMLingua-2,llmlingua2,41.54
+nq,EARC (default),earc,42.9
+hotpotqa,Standard RAG,standard_rag,60.82
+hotpotqa,Top-k passages,topk,54.13
+hotpotqa,LLMLingua-2,llmlingua2,43.79
+hotpotqa,EARC (default),earc,49.62
+triviaqa,Standard RAG,standard_rag,82.9
+triviaqa,Top-k passages,topk,76.6
+triviaqa,LLMLingua-2,llmlingua2,59.69
+triviaqa,EARC (default),earc,68.7

@@ -30,8 +30,9 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 # Fallback Mistral API key if not in env
+# Ensure MISTRAL_API_KEY is read from environment
 if not os.environ.get("MISTRAL_API_KEY"):
-    os.environ["MISTRAL_API_KEY"] = "lIK71q2MhMrZXQwxYE0nVUvoNNUVjQzy"
+    pass
 
 from src.config.settings import load_config
 from src.data.loaders import load_dataset

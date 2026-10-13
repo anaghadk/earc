@@ -94,6 +94,16 @@ class MistralConfig(BaseModel):
     def load_api_key_from_env(self) -> "MistralConfig":
         if self.api_key is None:
             self.api_key = os.environ.get("MISTRAL_API_KEY")
+            if not self.api_key and os.name == "nt":
+                try:
+                    import winreg
+                    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Environment") as k:
+                        val, _ = winreg.QueryValueEx(k, "MISTRAL_API_KEY")
+                        if val:
+                            self.api_key = val
+                            os.environ["MISTRAL_API_KEY"] = val
+                except Exception:
+                    pass
         return self
 
 

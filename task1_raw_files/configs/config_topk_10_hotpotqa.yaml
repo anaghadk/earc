@@ -1,0 +1,14 @@
+data:
+  seed: 42
+  datasets:
+  - nq
+  - hotpotqa
+  - triviaqa
+retrieval:
+  backend: dense
+  top_k: 10
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+experiment:
+  experiment: exp2
+  mode: topk
+  k: 10
